@@ -8,10 +8,11 @@ cache:
     - "node_modules"
 
 script:
+  - npm install
   - npm run-script lint
   - npm run-script build
 
-# commit update to running website on github pages
+# deploy on github pages
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - git clone git://$GITHUB_URL
