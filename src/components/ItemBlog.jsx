@@ -86,16 +86,9 @@ const Excerpt = styled.div`
 
 const ItemBlog = ({ path, cover, category, title, date, timeToRead, excerpt }) => (
   <Wrapper>
-
-      <Image>
-        <Link to={path}>
-              {cover &&
-          <Img sizes={cover} />
-              }
-        </Link>
-      </Image>
-
-
+    <Image>
+      <Link to={path}>{cover && <Img sizes={cover} />}</Link>
+    </Image>
     <Information>
       <Link to={path}>
         <h1>{title}</h1>

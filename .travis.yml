@@ -8,17 +8,20 @@ cache:
     - "node_modules"
 
 script:
+  - npm run-script lint
   - npm run-script build
 
+# commit update to running website on github pages
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - git clone git://$GITHUB_URL
   - mv -f public/* $GITHUB_NAME
   - cd $GITHUB_NAME
-  - ls
   - git remote
   - git config user.email "$GITHUB_EMAIL"
   - git config user.name "$GITHUB_USERNAME"
   - git add .
   - git commit -m "$MESSAGE"
   - git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
+  - git push https://username:password@myrepository.biz/file.git
+  if: branch = master

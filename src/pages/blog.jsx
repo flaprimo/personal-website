@@ -29,7 +29,7 @@ const Blog = ({
           <ItemBlog
             key={post.node.frontmatter.title}
             path={post.node.fields.slug}
-            cover={(post.node.frontmatter.cover ? post.node.frontmatter.cover.childImageSharp.sizes : null)}
+            cover={post.node.frontmatter.cover ? post.node.frontmatter.cover.childImageSharp.sizes : null}
             title={post.node.frontmatter.title}
             date={post.node.frontmatter.date}
             category={post.node.frontmatter.category}

@@ -105,15 +105,13 @@ const Post = ({ pathContext: { slug, left, right }, data: { markdownRemark: post
         <Hero>
           <h1>{post.title}</h1>
           <Information>
-            {post.date} &mdash; Time to read: {postNode.timeToRead} Min. &mdash; <span className={hideS}>Category: </span>
+            {post.date} &mdash; Time to read: {postNode.timeToRead} Min. &mdash;
+            <span className={hideS}>Category: </span>
             <Link to={`/categories/${kebabCase(post.category)}`}>{post.category}</Link>
           </Information>
         </Hero>
         <Wave />
-          {post.cover &&
-            <Img sizes={sizes} />
-          }
-
+        {post.cover && <Img sizes={sizes} />}
       </Wrapper>
       <Container type="article">
         <Content input={postNode.html} />

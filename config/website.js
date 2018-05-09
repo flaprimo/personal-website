@@ -10,8 +10,7 @@ module.exports = {
   siteBanner: '/social/banner.jpg',
   siteUrl: 'https://www.flaprimo.github.io',
   pathPrefix: '/',
-  siteDescription:
-    'Developer. Italian MSc student of computer engineering at Politecnico di Milano.',
+  siteDescription: 'Developer. Italian MSc student of computer engineering at Politecnico di Milano.',
   // IDs
   googleAnalyticsID: '',
   twitter: 'flavioprimo_91',

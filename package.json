@@ -12,7 +12,7 @@
     "emotion": "^9.1.1",
     "emotion-server": "^9.1.1",
     "emotion-theming": "^9.0.0",
-    "gatsby": "^1.9.232",
+    "gatsby": "^1.9.259",
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-catch-links": "^1.0.19",
@@ -32,7 +32,7 @@
     "gatsby-remark-copy-linked-files": "^1.5.30",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^1.5.56",
-    "gatsby-remark-prismjs": "^1.2.18",
+    "gatsby-remark-prismjs": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^1.4.18",
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.36",
@@ -55,7 +55,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "npm-check-updates": "^2.14.2"
   },
   "keywords": [
     "gatsby",
@@ -68,6 +69,7 @@
     "dev": "gatsby develop -o",
     "build": "gatsby build",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
-    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore"
+    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
+    "ncu": "ncu"
   }
 }
