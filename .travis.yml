@@ -15,8 +15,10 @@ after_success:
   - git clone git://$GITHUB_URL
   - mv -f public/* $GITHUB_NAME
   - cd $GITHUB_NAME
-  - git config user.email $GITHUB_EMAIL
-  - git config user.name $GITHUB_USER
+  - ls
+  - git remote
+  - git config user.email "$GITHUB_EMAIL"
+  - git config user.name "$GITHUB_USER"
   - git add .
-  - git commit -m $MESSAGE
+  - git commit -m "$MESSAGE"
   - git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
