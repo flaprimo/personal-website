@@ -24,4 +24,3 @@ after_success:
   - git commit -m "$MESSAGE"
   - git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
   - git push https://username:password@myrepository.biz/file.git
-  if: branch = master
