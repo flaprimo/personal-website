@@ -1,0 +1,73 @@
+{
+  "name": "flaprimo-website",
+  "description": "Personal blog of Flavio Primo",
+  "repository": {
+    "type": "git",
+    "url": "https://flaprimo.github.io"
+  },
+  "version": "1.1.0",
+  "author": "Flavio Primo <fla.primo.engineer@outlook.com>",
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "emotion": "^9.1.1",
+    "emotion-server": "^9.1.1",
+    "emotion-theming": "^9.0.0",
+    "gatsby": "^1.9.232",
+    "gatsby-image": "^1.0.42",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-catch-links": "^1.0.19",
+    "gatsby-plugin-emotion": "^1.1.16",
+    "gatsby-plugin-google-analytics": "^1.0.22",
+    "gatsby-plugin-lodash": "^1.0.11",
+    "gatsby-plugin-manifest": "^1.0.15",
+    "gatsby-plugin-netlify": "^1.0.19",
+    "gatsby-plugin-nprogress": "^1.0.14",
+    "gatsby-plugin-offline": "^1.0.15",
+    "gatsby-plugin-react-helmet": "^2.0.7",
+    "gatsby-plugin-react-next": "^1.0.11",
+    "gatsby-plugin-sharp": "^1.6.41",
+    "gatsby-plugin-sitemap": "^1.2.16",
+    "gatsby-plugin-typography": "^1.7.18",
+    "gatsby-remark-autolink-headers": "^1.4.13",
+    "gatsby-remark-copy-linked-files": "^1.5.30",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^1.5.56",
+    "gatsby-remark-prismjs": "^1.2.18",
+    "gatsby-remark-responsive-iframe": "^1.4.18",
+    "gatsby-source-filesystem": "^1.5.27",
+    "gatsby-transformer-remark": "^1.7.36",
+    "gatsby-transformer-sharp": "^1.6.22",
+    "polished": "^1.9.2",
+    "prop-types": "^15.6.1",
+    "react-emotion": "^9.1.1",
+    "react-headroom": "^2.2.2",
+    "react-helmet": "^5.2.0",
+    "typeface-istok-web": "^0.0.54",
+    "typeface-montserrat": "^0.0.54"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.11.1"
+  },
+  "keywords": [
+    "gatsby",
+    "blog",
+    "flaprimo"
+  ],
+  "license": "UNLICENSED",
+  "main": "n/a",
+  "scripts": {
+    "dev": "gatsby develop -o",
+    "build": "gatsby build",
+    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore"
+  }
+}
