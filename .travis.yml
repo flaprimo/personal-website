@@ -17,8 +17,8 @@ after_success:
   - cd $GITHUB_NAME
   - ls
   - git remote
-  - git config user.email "$GITHUB_EMAIL"
-  - git config user.name "$GITHUB_USER"
+  - git config --global user.email "$GITHUB_EMAIL"
+  - git config --global user.name "$GITHUB_USER"
   - git add .
   - git commit -m "$MESSAGE"
   - git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
