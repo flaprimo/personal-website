@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /impressum
-Disallow: /datenschutz
-
-sitemap: https://www.flaprimo.github.io/sitemap.xml
+Disallow:
