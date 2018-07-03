@@ -15,6 +15,7 @@ script:
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - git clone git://$GITHUB_URL
+  - rm -rf $GITHUB_NAME/!(.git)
   - mv -f public/* $GITHUB_NAME
   - cd $GITHUB_NAME
   - git remote
