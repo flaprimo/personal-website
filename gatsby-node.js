@@ -3,11 +3,11 @@ const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    const blogPost = path.resolve('./src/templates/post.js')
     resolve(
       graphql(
         `
@@ -20,6 +20,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   }
                   frontmatter {
                     title
+                    category
+                    tags
                   }
                 }
               }
@@ -36,6 +38,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const posts = result.data.allMarkdownRemark.edges;
 
         _.each(posts, (post, index) => {
+          //const slug = post.node.fields.slug;
+          const slug = post.node.frontmatter.category.toLowerCase() + post.node.fields.slug;
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
 
@@ -45,7 +49,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: post.node.fields.slug,
               previous,
-              next,
+              next
             },
           })
         })
@@ -54,15 +58,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
-      value,
+      value: node.frontmatter.category.replace(/\s+/g, '-').toLowerCase() + createFilePath({node, getNode})
     })
   }
 }

@@ -1,17 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Flavio Primo',
+    author: 'Flavio Primo',
+    description: 'Just another dev blog',
+    siteUrl: 'https://flaprimo.github.io',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/flaprimo-website',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
+        path: `${__dirname}/content/posts`,
+        name: 'posts',
       },
     },
     {
@@ -53,5 +53,26 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./static/logo.png",
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`
+    }
   ],
-}
+};
