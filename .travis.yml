@@ -6,6 +6,10 @@ os:
 node_js:
   - "node"
 
+cache:
+  directories:
+    - node_modules
+
 script:
   - npm install
   - npm run lint
