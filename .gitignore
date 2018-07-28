@@ -1,12 +1,4 @@
-# Node
-/node_modules/
-yarn.lock
-
-# Gatsby
-/public
-/.cache/
-.gatsby-context.js
-.intermediate-representation/
-
-# IDEA
 /.idea
+/node_modules
+/public
+/.cache

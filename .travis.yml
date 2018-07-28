@@ -1,31 +1,31 @@
 language: node_js
 
 os:
-  - linux
+- linux
 
 node_js:
-  - "node"
+- "node"
 
 cache:
   directories:
-    - node_modules
+  - node_modules
 
 script:
-  - npm install
-  - npm run lint
-  - npm run build
+- npm install
+- npm run lint
+- npm run build
 
 # deploy on github pages
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - git clone git://$GITHUB_URL
-  - rm -rf $GITHUB_NAME/!(.git)
-  - mv -f public/* $GITHUB_NAME
-  - cd $GITHUB_NAME
-  - git remote
-  - git config user.email "$GITHUB_EMAIL"
-  - git config user.name "$GITHUB_USERNAME"
-  - git add .
-  - git commit -m "$MESSAGE"
-  - git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
-  #if: branch = master
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- git clone git://$GITHUB_URL
+- rm -rf $GITHUB_NAME/!(.git)
+- mv -f public/* $GITHUB_NAME
+- cd $GITHUB_NAME
+- git remote
+- git config user.email "$GITHUB_EMAIL"
+- git config user.name "$GITHUB_USERNAME"
+- git add .
+- git commit -m "$MESSAGE"
+- git push "https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_URL" master
+#if: branch = master

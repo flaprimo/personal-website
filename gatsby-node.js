@@ -1,71 +1,81 @@
-const _ = require('lodash')
-const Promise = require('bluebird')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+/**
+ * Implement Gatsby's Node APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/node-apis/
+ */
+
+const _ = require("lodash");
+const Promise = require("bluebird");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/post.js')
+    const blogTemplate = path.resolve("./src/templates/blogElement.js");
+
     resolve(
       graphql(
         `
+        {
+          allMarkdownRemark(
+            filter: {fileAbsolutePath: {regex: "/blog/"}},
+            sort: {fields: [frontmatter___date], order: DESC})
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
-              edges {
-                node {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    category
-                    tags
-                  }
+            totalCount
+            edges {
+              node {
+                fields {
+                  slug
                 }
+                frontmatter {
+                  title
+                  date(formatString: "DD MMMM YYYY")
+                  category
+                }
+                excerpt
               }
             }
           }
+        }
         `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          console.log(result.errors);
+          reject(result.errors);
         }
 
-        // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
+        const blogElements = result.data.allMarkdownRemark.edges;
 
-        _.each(posts, (post, index) => {
-          //const slug = post.node.fields.slug;
-          const slug = post.node.frontmatter.category.toLowerCase() + post.node.fields.slug;
-          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-          const next = index === 0 ? null : posts[index - 1].node;
+        _.each(blogElements, (blogElement, index) => {
+          const slug = blogElement.node.fields.slug;
+          const previous = index === blogElements.length - 1 ? null : blogElements[index + 1].node;
+          const next = index === 0 ? null : blogElements[index - 1].node;
 
           createPage({
-            path: post.node.fields.slug,
-            component: blogPost,
+            path: '/blog' + blogElement.node.fields.slug,
+            component: blogTemplate,
             context: {
-              slug: post.node.fields.slug,
+              slug: slug,
               previous,
               next
-            },
-          })
-        })
+            }
+          });
+        });
       })
-    )
-  })
-}
+    );
+  });
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     createNodeField({
-      name: 'slug',
+      name: "slug",
       node,
-      value: node.frontmatter.category.replace(/\s+/g, '-').toLowerCase() + createFilePath({node, getNode})
-    })
+      value: createFilePath({ node, getNode })
+    });
   }
-}
+};

@@ -1,49 +1,33 @@
-import React from "react"
-import { StaticQuery, graphql, Link } from 'gatsby'
-import PropTypes from "prop-types"
+import React from 'react'
+import { Link } from 'gatsby'
 
-/* Component */
-const Header = ({ data }) => (
-    <header>
+const Header = ({ siteTitle }) => (
+  <div
+    style={{
+      background: 'rebeccapurple',
+      marginBottom: '1.45rem',
+    }}
+  >
+    <div
+      style={{
+        margin: '0 auto',
+        maxWidth: 960,
+        padding: '1.45rem 1.0875rem',
+      }}
+    >
+      <h1 style={{ margin: 0 }}>
         <Link
-            style={{
-                boxShadow: 'none',
-                textDecoration: 'none',
-                color: 'inherit',
-            }}
-            to={'/'}
+          to="/"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
         >
-            <h1>{data.site.siteMetadata.title}</h1>
+          {siteTitle}
         </Link>
-
-        <h2>{data.site.siteMetadata.description}</h2>
-    </header>
-);
-
-/* Query */
-export default props => (
-    <StaticQuery
-        query={graphql`
-      query HeaderQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
-        render={data => <Header data={data} {...props} />}
-    />
+      </h1>
+    </div>
+  </div>
 )
 
-Header.propTypes = {
-    data: PropTypes.shape({
-        site: PropTypes.shape({
-            siteMetadata: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.string.isRequired,
-            }).isRequired,
-        }).isRequired,
-    }).isRequired,
-};
+export default Header
