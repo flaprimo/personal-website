@@ -13,7 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const blogTemplate = path.resolve("./src/templates/blogElement.js");
+    const blogTemplate = path.resolve("./src/templates/blogElementTemplate.js");
 
     resolve(
       graphql(

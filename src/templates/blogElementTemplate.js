@@ -1,11 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Link from 'gatsby'
-import get from 'lodash/get'
+import Layout from "../components/Layout";
+import PropTypes from "prop-types"
 
 class BlogElementTemplate extends React.Component {
   render() {
+    const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
 
     const blogElement = this.props.data.markdownRemark;
@@ -22,14 +23,14 @@ class BlogElementTemplate extends React.Component {
     );
 
     return (
-      <div>
+      <Layout contentTitle={title} siteTitle={siteTitle}>
         <h1>{title}</h1>
         <p>{date} - {category}</p>
 
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
         <ul>{tagTemplate}</ul>
-      </div>
+      </Layout>
     )
   }
 }
@@ -37,7 +38,12 @@ class BlogElementTemplate extends React.Component {
 export default BlogElementTemplate
 
 export const pageQuery = graphql`
-  query BlogElementsBySlug($slug: String!) {
+  query BlogElementQuery($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
@@ -49,4 +55,20 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
+
+BlogElementTemplate.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    markdownRemark: PropTypes.object.isRequired
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    next: PropTypes.object.isRequired,
+    previous: PropTypes.object.isRequired
+  }).isRequired
+};
