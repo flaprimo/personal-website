@@ -4,11 +4,15 @@ module.exports = [
     url: "/"
   },
   {
+    title: "Blog",
+    url: "/blog"
+  },
+  {
     title: "About",
     url: "/about"
   },
   {
-    title: "Contact",
-    url: "/contact"
+    title: "Cookie Policy",
+    url: "/cookie-policy"
   }
 ];

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { graphql, Link } from "gatsby";
 
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 
 class BlogPage extends React.Component {
@@ -12,7 +12,7 @@ class BlogPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
-        <h1>Blog</h1>
+        <h2>Blog</h2>
         <p>Welcome to the blog</p>
 
         {blogElements.map(({ node }) => {
@@ -25,22 +25,22 @@ class BlogPage extends React.Component {
           return (
             <div key={slug}>
               <h3>
-                <Link style={{ boxShadow: 'none' }} to={"/blog" + slug}>
+                <Link style={{ boxShadow: "none" }} to={"/blog" + slug}>
                   {title}
                 </Link>
               </h3>
               <small>{date} - {category}</small>
-              <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+              <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
             </div>
-          )
+          );
         })}
 
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPage
+export default BlogPage;
 
 export const pageQuery = graphql`
   query blogPageQuery {
@@ -73,23 +73,8 @@ BlogPage.propTypes = {
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
         title: PropTypes.string.isRequired
-      }).isRequired,
+      }).isRequired
     }).isRequired,
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.shape({
-        node: PropTypes.shape({
-          excerpt: PropTypes.string.isRequired,
-          fields: PropTypes.shape({
-            slug: PropTypes.string.isRequired
-          }).isRequired,
-          frontmatter: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            date: PropTypes.string.isRequired,
-            category: PropTypes.string.isRequired,
-            tags: PropTypes.array.isRequired
-          }).isRequired
-        })
-      })
-    }).isRequired
+    allMarkdownRemark: PropTypes.object.isRequired
   }).isRequired
 };
