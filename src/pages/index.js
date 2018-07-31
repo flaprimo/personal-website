@@ -13,7 +13,7 @@ class IndexPage extends React.Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <h1>Hi everyone!</h1>
         <p>Welcome to my new website</p>
-        <Link to="/page-2/">Go to page 2</Link>
+        <Link to="/blog/">Go to Blog</Link>
       </Layout>
     )
   }
