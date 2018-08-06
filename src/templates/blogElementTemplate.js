@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from "../components/Layout";
 import PropTypes from "prop-types"
 import NextPrevElements from "../components/NextPrevElements";
+import Gallery from 'react-photo-gallery';
 
 class BlogElementTemplate extends React.Component {
   render() {
