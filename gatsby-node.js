@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const _ = require("lodash");
 const Promise = require("bluebird");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
@@ -12,14 +11,30 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    const blogTemplate = path.resolve("./src/templates/blogElementTemplate.js");
+  const createCustomPage = (elements, type, template) => (
+    elements.forEach((element, index) => {
+      const slug = element.node.fields.slug;
+      const previous = index === elements.length - 1 ? null : elements[index + 1].node;
+      const next = index === 0 ? null : elements[index - 1].node;
 
+      createPage({
+        path: type + element.node.fields.slug,
+        component: template,
+        context: {
+          slug: slug,
+          previous,
+          next
+        }
+      });
+    })
+  );
+
+  return new Promise((resolve, reject) => {
     resolve(
       graphql(
         `
         {
-          allMarkdownRemark(
+          blog: allMarkdownRemark(
             filter: {fileAbsolutePath: {regex: "/blog/"}},
             sort: {fields: [frontmatter___date], order: DESC})
           {
@@ -30,11 +45,24 @@ exports.createPages = ({ graphql, actions }) => {
                   slug
                 }
                 frontmatter {
-                  title
                   date(formatString: "DD MMMM YYYY")
-                  category
                 }
-                excerpt
+              }
+            }
+          }
+          gallery: allMarkdownRemark(
+            filter: {fileAbsolutePath: {regex: "/gallery/"}},
+            sort: {fields: [frontmatter___date], order: DESC})
+          {
+            totalCount
+            edges {
+              node {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date(formatString: "DD MMMM YYYY")
+                }
               }
             }
           }
@@ -46,23 +74,14 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        const blogElements = result.data.allMarkdownRemark.edges;
+        const blogTemplate = path.resolve("./src/templates/blogElementTemplate.js");
+        const galleryTemplate = path.resolve("./src/templates/galleryElementTemplate.js");
 
-        _.each(blogElements, (blogElement, index) => {
-          const slug = blogElement.node.fields.slug;
-          const previous = index === blogElements.length - 1 ? null : blogElements[index + 1].node;
-          const next = index === 0 ? null : blogElements[index - 1].node;
+        const blogElements = result.data.blog.edges;
+        const galleryElements = result.data.gallery.edges;
 
-          createPage({
-            path: '/blog' + blogElement.node.fields.slug,
-            component: blogTemplate,
-            context: {
-              slug: slug,
-              previous,
-              next
-            }
-          });
-        });
+        createCustomPage(blogElements, "/blog", blogTemplate);
+        createCustomPage(galleryElements, "/gallery", galleryTemplate);
       })
     );
   });

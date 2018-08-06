@@ -6,8 +6,9 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "gatsby": "next",
+    "gatsby-image": "next",
     "gatsby-plugin-feed": "next",
-    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-offline": "^2.0.0-beta.6",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sharp": "next",
     "gatsby-remark-copy-linked-files": "next",
@@ -20,8 +21,8 @@
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.10",
     "prismjs": "^1.15.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -37,7 +38,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
-    "eslint": "^5.2.0",
+    "eslint": "^5.3.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-react": "^7.10.0",
     "gatsby-plugin-eslint": "^1.0.3",

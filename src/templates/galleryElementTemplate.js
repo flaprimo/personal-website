@@ -4,17 +4,17 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types"
 import NextPrevElements from "../components/NextPrevElements";
 
-class BlogElementTemplate extends React.Component {
+class GalleryElementTemplate extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
 
-    const blogElement = this.props.data.markdownRemark;
-    const title = blogElement.frontmatter.title;
-    const category = blogElement.frontmatter.category;
-    const tags = blogElement.frontmatter.tags;
-    const date = blogElement.frontmatter.date;
-    const html = blogElement.html;
+    const galleryElement = this.props.data.markdownRemark;
+    const title = galleryElement.frontmatter.title;
+    const category = galleryElement.frontmatter.category;
+    const tags = galleryElement.frontmatter.tags;
+    const date = galleryElement.frontmatter.date;
+    const html = galleryElement.html;
 
     const tagTemplate = tags.map((tag, i) =>
       <li key={i} style={{display: 'inline-block', marginRight: '10px', border: '1px solid hsla(0,0%,0%,0.2)', padding: '2px'}}>
@@ -31,16 +31,16 @@ class BlogElementTemplate extends React.Component {
 
         <ul>{tagTemplate}</ul>
 
-        <NextPrevElements type={"/blog"} previous={previous} next={next}/>
+        <NextPrevElements type={"/gallery"} previous={previous} next={next}/>
       </Layout>
     )
   }
 }
 
-export default BlogElementTemplate
+export default GalleryElementTemplate
 
 export const pageQuery = graphql`
-  query blogElementQuery($slug: String!) {
+  query galleryElementQuery($slug: String!) {
     site {
       siteMetadata {
         title
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
   }
 `;
 
-BlogElementTemplate.propTypes = {
+GalleryElementTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

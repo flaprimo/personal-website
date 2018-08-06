@@ -30,6 +30,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              quality: 90,
+              linkImagesToOriginal: true
             },
           },
           {
@@ -41,6 +43,13 @@ module.exports = {
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
+          // {
+          //   resolve: 'gatsby-remark-external-links',
+          //   options: {
+          //     target: '_blank',
+          //     rel: 'nofollow noopener noreferrer',
+          //   }
+          // }
         ],
       },
 

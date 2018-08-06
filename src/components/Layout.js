@@ -10,7 +10,7 @@ import Nav from "./Nav";
 class Layout extends React.Component {
   render() {
     const { siteTitle, contentTitle, children } = this.props;
-    const title = `${contentTitle} | ${siteTitle}`;
+    const title =`${contentTitle} | ${siteTitle}`;
     return (
       <div>
         <Helmet title={title} />
