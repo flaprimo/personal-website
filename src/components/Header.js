@@ -2,7 +2,6 @@ import React from "react"
 import { StaticQuery, graphql, Link } from 'gatsby'
 import PropTypes from "prop-types"
 
-/* Component */
 const Header = ({ data }) => (
   <header>
     <Link
