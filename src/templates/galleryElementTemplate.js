@@ -1,8 +1,9 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
+import Tags from "../components/Tags";
 
 class GalleryElementTemplate extends React.Component {
   render() {
@@ -16,28 +17,22 @@ class GalleryElementTemplate extends React.Component {
     const date = galleryElement.frontmatter.date;
     const html = galleryElement.html;
 
-    const tagTemplate = tags.map((tag, i) =>
-      <li key={i} style={{display: 'inline-block', marginRight: '10px', border: '1px solid hsla(0,0%,0%,0.2)', padding: '2px'}}>
-        {tag}
-      </li>
-    );
-
     return (
       <Layout contentTitle={title} siteTitle={siteTitle}>
         <h1>{title}</h1>
         <p>{date} - {category}</p>
 
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div dangerouslySetInnerHTML={{ __html: html }}/>
 
-        <ul>{tagTemplate}</ul>
+        <Tags tags={tags}/>
 
         <NextPrevElements type={"/gallery"} previous={previous} next={next}/>
       </Layout>
-    )
+    );
   }
 }
 
-export default GalleryElementTemplate
+export default GalleryElementTemplate;
 
 export const pageQuery = graphql`
   query galleryElementQuery($slug: String!) {
@@ -56,6 +51,18 @@ export const pageQuery = graphql`
         tags
       }
     }
+    allFile(filter: {
+      sourceInstanceName: {eq: "gallery"},
+      internal: {mediaType: {eq: "image/jpeg"}},
+      absolutePath: {regex: $slug}
+    }) {
+      totalCount
+      edges {
+        node {
+          relativePath
+        }
+      }
+    }
   }
 `;
 
@@ -63,8 +70,8 @@ GalleryElementTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
+        title: PropTypes.string.isRequired
+      }).isRequired
     }).isRequired,
     markdownRemark: PropTypes.object.isRequired
   }).isRequired,

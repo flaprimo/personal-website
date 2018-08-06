@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types"
 import NextPrevElements from "../components/NextPrevElements";
 import Gallery from 'react-photo-gallery';
+import Tags from "../components/Tags";
 
 class BlogElementTemplate extends React.Component {
   render() {
@@ -17,12 +18,6 @@ class BlogElementTemplate extends React.Component {
     const date = blogElement.frontmatter.date;
     const html = blogElement.html;
 
-    const tagTemplate = tags.map((tag, i) =>
-      <li key={i} style={{display: 'inline-block', marginRight: '10px', border: '1px solid hsla(0,0%,0%,0.2)', padding: '2px'}}>
-        {tag}
-      </li>
-    );
-
     return (
       <Layout contentTitle={title} siteTitle={siteTitle}>
         <h1>{title}</h1>
@@ -30,7 +25,7 @@ class BlogElementTemplate extends React.Component {
 
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
-        <ul>{tagTemplate}</ul>
+        <Tags tags={tags}/>
 
         <NextPrevElements type={"/blog"} previous={previous} next={next}/>
       </Layout>
