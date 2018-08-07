@@ -25,16 +25,16 @@ class BlogPage extends React.Component {
 
             return (
               <div key={slug} className="card">
-                <div className="card-content" style={{marginBottom: "10px"}}>
+                <div className="card-content" style={{ marginBottom: "10px" }}>
                   <h3 className="is-size-4">
                     <Link to={"/blog" + slug}>
                       {title}
                     </Link>
                   </h3>
                   <div className="content">
-                    <small>{date} - {category}</small>
-                    <br/>
                     <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                    <br/>
+                    <small>{date} - {category}</small>
                   </div>
                 </div>
               </div>

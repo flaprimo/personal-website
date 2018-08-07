@@ -10,9 +10,5 @@ module.exports = [
   {
     title: "About",
     url: "/about"
-  },
-  {
-    title: "Cookie Policy",
-    url: "/cookie-policy"
   }
 ];

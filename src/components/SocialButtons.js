@@ -20,11 +20,11 @@ const listSocial = ConfSocial.map((social, i) =>
 );
 
 const SocialButtons = () => (
-  <footer>
+  <div>
     <ul style={socialStyle}>
       {listSocial}
     </ul>
-  </footer>
+  </div>
 );
 
 export default SocialButtons;
