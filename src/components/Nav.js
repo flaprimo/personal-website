@@ -16,7 +16,7 @@ class Nav extends React.Component {
     );
 
     return (
-      <nav className="navbar is-primary is-fixed">
+      <nav className="navbar is-primary is-fixed-top">
         <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to={"/"}>

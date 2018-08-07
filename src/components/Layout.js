@@ -2,7 +2,6 @@ import React from "react";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 
-import Header from "./Header";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import "bulma/css/bulma.css";
@@ -12,9 +11,11 @@ class Layout extends React.Component {
     const { siteTitle, contentTitle, children } = this.props;
     const title = `${contentTitle} | ${siteTitle}`;
     return (
-
-      <div className="has-navbar-fixed-top">
-        <Helmet title={title}/>
+      <div>
+        <Helmet>
+          <title>{title}</title>
+          <html class="has-navbar-fixed-top"/>
+        </Helmet>
 
         <Nav/>
         {children}

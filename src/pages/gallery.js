@@ -27,23 +27,33 @@ class GalleryPage extends React.Component {
               const cover = node.frontmatter.cover.childImageSharp.fluid;
 
               return (
-                <div key={slug} className="card column is-half">
-                  <div className="card-image">
-                    <Img className="image" fluid={cover}/>
-                  </div>
-
-                  <div className="card-content">
-                    <h3 className="is-size-4">
-                      <Link to={"/gallery" + slug}>
-                        {title}
-                      </Link>
-                    </h3>
-                    <br/>
-                    <div className="content">
-                      <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
-                      <br/>
-                      <small>{date} - {category}</small>
+                <div className="column is-half">
+                  <div key={slug} className="card"
+                       style={{
+                         display: "flex",
+                         minHeight: "100%",
+                         flexDirection: "column"
+                       }}>
+                    <div className="card-image">
+                      <Img className="image" fluid={cover}/>
                     </div>
+
+                    <div className="card-content" style={{flex: "1"}}>
+                      <h3 className="is-size-4">
+                        <Link to={"/gallery" + slug}>
+                          {title}
+                        </Link>
+                      </h3>
+                      <br/>
+                      <div className="content" >
+                        <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                      </div>
+                    </div>
+
+                    <footer className="card-footer">
+                      <div className="card-footer-item">{date}</div>
+                      <div className="card-footer-item">{category}</div>
+                    </footer>
                   </div>
                 </div>
               );

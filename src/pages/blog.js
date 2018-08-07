@@ -16,30 +16,44 @@ class BlogPage extends React.Component {
         <Header title={contentTitle} subtitle="Welcome to the blog"/>
 
         <div className="container section">
-          {blogElements.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            const slug = node.fields.slug;
-            const date = node.frontmatter.date;
-            const category = node.frontmatter.category;
-            const excerpt = node.excerpt;
+          <div className="columns is-multiline is-centered">
+            {blogElements.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              const slug = node.fields.slug;
+              const date = node.frontmatter.date;
+              const category = node.frontmatter.category;
+              const excerpt = node.excerpt;
 
-            return (
-              <div key={slug} className="card">
-                <div className="card-content" style={{ marginBottom: "10px" }}>
-                  <h3 className="is-size-4">
-                    <Link to={"/blog" + slug}>
-                      {title}
-                    </Link>
-                  </h3>
-                  <div className="content">
-                    <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
-                    <br/>
-                    <small>{date} - {category}</small>
+              return (
+                <div className="column is-half">
+                  <div key={slug} className="card"
+                       style={{
+                         display: "flex",
+                         minHeight: "100%",
+                         flexDirection: "column"
+                       }}>
+
+                    <div className="card-content" style={{ flex: "1" }}>
+                      <h3 className="is-size-4">
+                        <Link to={"/blog" + slug}>
+                          {title}
+                        </Link>
+                      </h3>
+                      <br/>
+                      <div className="content">
+                        <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                      </div>
+                    </div>
+
+                    <footer className="card-footer">
+                      <div className="card-footer-item">{date}</div>
+                      <div className="card-footer-item">{category}</div>
+                    </footer>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </Layout>
     );
