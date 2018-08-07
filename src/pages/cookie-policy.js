@@ -13,7 +13,7 @@ class CookiePolicyPage extends Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Come to the dark side, we have cookies!"/>
 
-        <div className="container content">
+        <div className="container content section">
           <p>This site uses cookies - small text files that are placed on your machine to help the site provide a better
             user experience.</p>
           <p>In general, cookies are used to retain user preferences, store information for things like shopping carts,

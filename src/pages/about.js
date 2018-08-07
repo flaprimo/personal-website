@@ -13,7 +13,7 @@ class AboutPage extends Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Let's talk about me"/>
 
-        <div className="container content">
+        <div className="container content section">
           <p>I am <b>Flavio Primo</b> an Italian web developer with a bachelor&#39;s degree in computer science and
             engineering at <a target="_blank" rel="noopener noreferrer" href="http://www.uniroma3.it/">Università degli
               Studi Roma Tre</a>.</p>

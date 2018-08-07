@@ -16,30 +16,39 @@ class GalleryPage extends React.Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Welcome to the gallery"/>
 
-        <div className="container content">
-          {blogElements.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            const slug = node.fields.slug;
-            const date = node.frontmatter.date;
-            const category = node.frontmatter.category;
-            const excerpt = node.excerpt;
-            const cover = node.frontmatter.cover.childImageSharp.fluid;
+        <div className="container section">
+          <div className="columns is-multiline is-centered">
+            {blogElements.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              const slug = node.fields.slug;
+              const date = node.frontmatter.date;
+              const category = node.frontmatter.category;
+              const excerpt = node.excerpt;
+              const cover = node.frontmatter.cover.childImageSharp.fluid;
 
-            return (
-              <div key={slug}>
-                <h3 className="is-size-3">
-                  <Link style={{ boxShadow: "none" }} to={"/gallery" + slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small className="is-size-6">{date} - {category}</small>
-                <div>
-                  <Img fluid={cover}/>
+              return (
+                <div key={slug} className="card column is-half">
+                  <div className="card-image">
+                    <Img className="image" fluid={cover}/>
+                  </div>
+
+                  <div className="card-content">
+                    <h3 className="is-size-4">
+                      <Link to={"/gallery" + slug}>
+                        {title}
+                      </Link>
+                    </h3>
+                    <br/>
+                    <div className="content">
+                      <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                      <br/>
+                      <small>{date} - {category}</small>
+                    </div>
+                  </div>
                 </div>
-                <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </Layout>
     );

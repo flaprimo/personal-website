@@ -23,7 +23,7 @@ class BlogElementTemplate extends React.Component {
       <Layout contentTitle={title} siteTitle={siteTitle}>
         <Header title={title} subtitle={date + " - " + category}/>
 
-        <div className="container">
+        <div className="container section">
           <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
           <Tags tags={tags}/>

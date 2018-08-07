@@ -86,18 +86,18 @@ class GalleryElementTemplate extends React.Component {
       <Layout contentTitle={title} siteTitle={siteTitle}>
         <Header title={title} subtitle={date + " - " + category}/>
 
-        <div className="container">
+        <div className="container section">
 
           <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
-          <div style={{}}>
+          <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
               <Img key={i} fluid={image.node.childImageSharp.sizes}
                    style={{
-                     marginRight: "20px",
-                     border: "1px solid hsla(0,0%,0%,0.2)",
-                     padding: "2px"
-                   }}/>
+                     height: "300px",
+                     width: "300px",
+                     margin: "10px",
+                   }} className="column is-one-fifth"/>
             ))}
           </div>
 
@@ -147,7 +147,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 400) {
+            sizes(maxWidth: 300, maxHeight: 300) {
               ...GatsbyImageSharpSizes_withWebp_tracedSVG
             }
           }

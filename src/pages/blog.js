@@ -15,7 +15,7 @@ class BlogPage extends React.Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Welcome to the blog"/>
 
-        <div className="container">
+        <div className="container section">
           {blogElements.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             const slug = node.fields.slug;
@@ -25,9 +25,9 @@ class BlogPage extends React.Component {
 
             return (
               <div key={slug} className="card">
-                <div className="card-content" style={{marginTop: "10px"}}>
+                <div className="card-content" style={{marginBottom: "10px"}}>
                   <h3 className="is-size-4">
-                    <Link style={{ boxShadow: "none" }} to={"/blog" + slug}>
+                    <Link to={"/blog" + slug}>
                       {title}
                     </Link>
                   </h3>

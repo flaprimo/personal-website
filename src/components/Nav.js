@@ -20,7 +20,7 @@ class Nav extends React.Component {
         <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to={"/"}>
-            Flavio Primo
+            <b>Flavio Primo</b>
           </Link>
           <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
                 onClick={this.toggleBurgerOnClick}>

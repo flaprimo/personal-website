@@ -13,7 +13,7 @@ class NotFoundPage extends Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Page not found"/>
 
-        <div className="container content">
+        <div className="container content section">
           <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
         </div>
       </Layout>
