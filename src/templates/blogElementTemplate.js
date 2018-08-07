@@ -1,10 +1,12 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
-import Gallery from 'react-photo-gallery';
+import Gallery from "react-photo-gallery";
 import Tags from "../components/Tags";
+import styles from "./typography.css";
+import Header from "../components/Header";
 
 class BlogElementTemplate extends React.Component {
   render() {
@@ -20,20 +22,21 @@ class BlogElementTemplate extends React.Component {
 
     return (
       <Layout contentTitle={title} siteTitle={siteTitle}>
-        <h1>{title}</h1>
-        <p>{date} - {category}</p>
+        <Header title={title} subtitle={date + " - " + category}/>
 
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="container">
+          <div className={"article " + styles} dangerouslySetInnerHTML={{ __html: html }}/>
 
-        <Tags tags={tags}/>
+          <Tags tags={tags}/>
 
-        <NextPrevElements type={"/blog"} previous={previous} next={next}/>
+          <NextPrevElements type={"/blog"} previous={previous} next={next}/>
+        </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogElementTemplate
+export default BlogElementTemplate;
 
 export const pageQuery = graphql`
   query blogElementQuery($slug: String!) {
@@ -59,8 +62,8 @@ BlogElementTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
+        title: PropTypes.string.isRequired
+      }).isRequired
     }).isRequired,
     markdownRemark: PropTypes.object.isRequired
   }).isRequired,

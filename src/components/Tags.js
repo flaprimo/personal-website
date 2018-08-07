@@ -1,21 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
 const Tags = ({ tags }) => (
-  tags.map((tag, i) =>
-    <li key={i} style={{
-      display: "inline-block",
-      marginRight: "10px",
-      border: "1px solid hsla(0,0%,0%,0.2)",
-      padding: "2px"
-    }}>
-      {tag}
-    </li>
-  )
+  <div className="tags">
+    {tags.map((tag, i) =>
+      <span key={i} className="tag">{tag}</span>
+    )}
+  </div>
 );
 
-export default Tags
+export default Tags;
 
 Tags.propTypes = {
-  tags: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired
 };

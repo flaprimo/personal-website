@@ -1,9 +1,11 @@
-import React from 'react'
-import SocialButton from './SocialButtons'
+import React from "react";
+import SocialButton from "./SocialButtons";
 
 const Footer = () => (
-  <footer>
-    <SocialButton />
+  <footer className="footer">
+    <div className="container">
+      <SocialButton/>
+    </div>
   </footer>
 );
 

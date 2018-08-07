@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import Layout from '../components/Layout'
+import React, { Component } from "react";
+import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import Header from "../components/Header";
 
 class NotFoundPage extends Component {
   render() {
@@ -10,8 +11,10 @@ class NotFoundPage extends Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
-        <h2>Page not found!</h2>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <Header title={contentTitle} subtitle="Page not found"/>
+        <div className="container">
+          <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        </div>
       </Layout>
     );
   }

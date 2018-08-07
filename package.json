@@ -5,6 +5,11 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "bulma": "^0.7.1",
+    "bulma-extensions": "^2.2.1",
+    "calipers": "^2.0.1",
+    "calipers-jpeg": "^2.0.0",
+    "flexbin": "^0.2.0",
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-plugin-feed": "next",
@@ -19,11 +24,13 @@
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
+    "jimp": "^0.3.2",
     "lodash": "^4.17.10",
     "prismjs": "^1.15.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
+    "react-images": "^0.5.19",
     "react-photo-gallery": "^6.1.2"
   },
   "keywords": [

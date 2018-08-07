@@ -1,9 +1,10 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Img from 'gatsby-image';
+import Img from "gatsby-image";
 
 import Layout from "../components/Layout";
 import PropTypes from "prop-types";
+import Header from "../components/Header";
 
 class GalleryPage extends React.Component {
   render() {
@@ -13,33 +14,33 @@ class GalleryPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
-        <h2>{contentTitle}</h2>
-        <p>Welcome to the gallery</p>
+        <Header title={contentTitle} subtitle="Welcome to the gallery"/>
 
-        {blogElements.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const slug = node.fields.slug;
-          const date = node.frontmatter.date;
-          const category = node.frontmatter.category;
-          const excerpt = node.excerpt;
-          const cover = node.frontmatter.cover.childImageSharp.fluid;
+        <div className="container">
+          {blogElements.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            const slug = node.fields.slug;
+            const date = node.frontmatter.date;
+            const category = node.frontmatter.category;
+            const excerpt = node.excerpt;
+            const cover = node.frontmatter.cover.childImageSharp.fluid;
 
-          return (
-            <div key={slug}>
-              <h3>
-                <Link style={{ boxShadow: "none" }} to={"/gallery" + slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{date} - {category}</small>
-              <div>
-                <Img fluid={cover} />
+            return (
+              <div key={slug}>
+                <h3 className="is-size-3">
+                  <Link style={{ boxShadow: "none" }} to={"/gallery" + slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small className="is-size-6">{date} - {category}</small>
+                <div>
+                  <Img fluid={cover}/>
+                </div>
+                <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
               </div>
-              <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
-            </div>
-          );
-        })}
-
+            );
+          })}
+        </div>
       </Layout>
     );
   }

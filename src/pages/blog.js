@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/Layout";
+import Header from "../components/Header";
 import PropTypes from "prop-types";
 
 class BlogPage extends React.Component {
@@ -12,29 +13,34 @@ class BlogPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
-        <h2>{contentTitle}</h2>
-        <p>Welcome to the blog</p>
+        <Header title={contentTitle} subtitle="Welcome to the blog"/>
 
-        {blogElements.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const slug = node.fields.slug;
-          const date = node.frontmatter.date;
-          const category = node.frontmatter.category;
-          const excerpt = node.excerpt;
+        <div className="container">
+          {blogElements.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            const slug = node.fields.slug;
+            const date = node.frontmatter.date;
+            const category = node.frontmatter.category;
+            const excerpt = node.excerpt;
 
-          return (
-            <div key={slug}>
-              <h3>
-                <Link style={{ boxShadow: "none" }} to={"/blog" + slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{date} - {category}</small>
-              <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
-            </div>
-          );
-        })}
-
+            return (
+              <div key={slug} className="card">
+                <div className="card-content" style={{marginTop: "10px"}}>
+                  <h3 className="is-size-4">
+                    <Link style={{ boxShadow: "none" }} to={"/blog" + slug}>
+                      {title}
+                    </Link>
+                  </h3>
+                  <div className="content">
+                    <small>{date} - {category}</small>
+                    <br/>
+                    <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </Layout>
     );
   }

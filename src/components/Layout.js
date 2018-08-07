@@ -1,30 +1,30 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from "prop-types"
+import React from "react";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
 
-import Header from './Header'
-import './layout.css'
+import Header from "./Header";
 import Footer from "./Footer";
 import Nav from "./Nav";
+import "bulma/css/bulma.css";
 
 class Layout extends React.Component {
   render() {
     const { siteTitle, contentTitle, children } = this.props;
-    const title =`${contentTitle} | ${siteTitle}`;
+    const title = `${contentTitle} | ${siteTitle}`;
     return (
-      <div>
-        <Helmet title={title} />
 
-        <Header/>
+      <div className="has-navbar-fixed-top">
+        <Helmet title={title}/>
+
         <Nav/>
-        { children }
+        {children}
         <Footer/>
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   siteTitle: PropTypes.string.isRequired,
