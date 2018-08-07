@@ -58,26 +58,26 @@ class GalleryElementTemplate extends React.Component {
     const date = galleryElement.frontmatter.date;
     const html = galleryElement.html;
 
-    let galleryJson = [];
-    this.props.data.allFile.edges.forEach((element, index) => {
-      const image = element.node.childImageSharp.sizes;
-      // Jimp.read(image.src, (err, lenna) => {
-      //   if (err) throw err;
-      //   lenna
-      //     .resize(256, 256) // resize
-      //     .quality(60) // set JPEG quality
-      //     .greyscale() // set greyscale
-      //     .write('lena-small-bw.jpg'); // save
-      // });
-
-      galleryJson.push({
-        src: image.src,
-        srcSet: image.srcSet.split(",\n"),
-        alt: "image " + index,
-        width: 4,
-        height: 3
-      });
-    });
+    // let galleryJson = [];
+    // this.props.data.allFile.edges.forEach((element, index) => {
+    //   const image = element.node.childImageSharp.sizes;
+    //   // Jimp.read(image.src, (err, lenna) => {
+    //   //   if (err) throw err;
+    //   //   lenna
+    //   //     .resize(256, 256) // resize
+    //   //     .quality(60) // set JPEG quality
+    //   //     .greyscale() // set greyscale
+    //   //     .write('lena-small-bw.jpg'); // save
+    //   // });
+    //
+    //   galleryJson.push({
+    //     src: image.src,
+    //     srcSet: image.srcSet.split(",\n"),
+    //     alt: "image " + index,
+    //     width: 4,
+    //     height: 3
+    //   });
+    // });
 
     // console.log(galleryJson);
 
@@ -92,23 +92,23 @@ class GalleryElementTemplate extends React.Component {
 
           <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
-              <Img key={i} fluid={image.node.childImageSharp.sizes}
+              <Img key={i} resolutions={image.node.childImageSharp.resolutions}
                    style={{
                      height: "300px",
                      width: "300px",
-                     margin: "10px",
+                     margin: "10px"
                    }} className="column is-one-fifth"/>
             ))}
           </div>
 
           {/*<Gallery photos={galleryJson} onClick={this.openLightbox}/>*/}
-          <Lightbox images={galleryJson}
-                    onClose={this.closeLightbox}
-                    onClickPrev={this.gotoPrevious}
-                    onClickNext={this.gotoNext}
-                    currentImage={this.state.currentImage}
-                    isOpen={this.state.lightboxIsOpen}
-          />
+          {/*<Lightbox images={galleryJson}*/}
+                    {/*onClose={this.closeLightbox}*/}
+                    {/*onClickPrev={this.gotoPrevious}*/}
+                    {/*onClickNext={this.gotoNext}*/}
+                    {/*currentImage={this.state.currentImage}*/}
+                    {/*isOpen={this.state.lightboxIsOpen}*/}
+          {/*/>*/}
 
           <Tags tags={tags}/>
 
@@ -147,8 +147,8 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 300, maxHeight: 300) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            resolutions(width: 300, height: 300, quality: 85) {
+              ...GatsbyImageSharpResolutions_tracedSVG
             }
           }
         }
