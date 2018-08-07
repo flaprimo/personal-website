@@ -88,14 +88,13 @@ class GalleryElementTemplate extends React.Component {
 
         <div className="container">
 
-          <div dangerouslySetInnerHTML={{ __html: html }}/>
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
           <div style={{}}>
             {this.props.data.allFile.edges.map((image, i) => (
               <Img key={i} fluid={image.node.childImageSharp.sizes}
                    style={{
-                     display: "inline-block",
-                     marginRight: "10px",
+                     marginRight: "20px",
                      border: "1px solid hsla(0,0%,0%,0.2)",
                      padding: "2px"
                    }}/>

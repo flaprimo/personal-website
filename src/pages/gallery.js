@@ -16,7 +16,7 @@ class GalleryPage extends React.Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
         <Header title={contentTitle} subtitle="Welcome to the gallery"/>
 
-        <div className="container">
+        <div className="container content">
           {blogElements.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             const slug = node.fields.slug;

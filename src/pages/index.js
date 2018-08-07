@@ -11,8 +11,10 @@ class IndexPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+        <div className="container content">
         <h2>Hi everyone!</h2>
         <p>Welcome to my new website</p>
+        </div>
       </Layout>
     );
   }

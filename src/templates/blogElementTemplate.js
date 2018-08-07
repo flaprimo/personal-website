@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
 import Gallery from "react-photo-gallery";
 import Tags from "../components/Tags";
-import styles from "./typography.css";
 import Header from "../components/Header";
 
 class BlogElementTemplate extends React.Component {
@@ -25,7 +24,7 @@ class BlogElementTemplate extends React.Component {
         <Header title={title} subtitle={date + " - " + category}/>
 
         <div className="container">
-          <div className={"article " + styles} dangerouslySetInnerHTML={{ __html: html }}/>
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
           <Tags tags={tags}/>
 
