@@ -92,22 +92,19 @@ class GalleryElementTemplate extends React.Component {
 
           <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
-              <Img key={i} resolutions={image.node.childImageSharp.resolutions}
-                   style={{
-                     height: "300px",
-                     width: "300px",
-                     margin: "10px"
-                   }} className="column is-one-fifth"/>
+              <div className="column is-narrow">
+                <Img key={i} resolutions={image.node.childImageSharp.resolutions} />
+              </div>
             ))}
           </div>
 
           {/*<Gallery photos={galleryJson} onClick={this.openLightbox}/>*/}
           {/*<Lightbox images={galleryJson}*/}
-                    {/*onClose={this.closeLightbox}*/}
-                    {/*onClickPrev={this.gotoPrevious}*/}
-                    {/*onClickNext={this.gotoNext}*/}
-                    {/*currentImage={this.state.currentImage}*/}
-                    {/*isOpen={this.state.lightboxIsOpen}*/}
+          {/*onClose={this.closeLightbox}*/}
+          {/*onClickPrev={this.gotoPrevious}*/}
+          {/*onClickNext={this.gotoNext}*/}
+          {/*currentImage={this.state.currentImage}*/}
+          {/*isOpen={this.state.lightboxIsOpen}*/}
           {/*/>*/}
 
           <Tags tags={tags}/>
