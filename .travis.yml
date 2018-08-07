@@ -9,6 +9,8 @@ node_js:
 cache:
   directories:
   - node_modules
+  - .cache
+  - public
 
 script:
 - npm install
