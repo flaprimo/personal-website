@@ -58,5 +58,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
+    'gatsby-plugin-netlify'
     ]
 };
