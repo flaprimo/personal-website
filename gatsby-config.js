@@ -56,6 +56,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-nprogress`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     'gatsby-plugin-netlify'
