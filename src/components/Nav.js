@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import ConfMenu from "../../conf/conf-menu";
+import { withPrefix } from "gatsby-link";
 
 class Nav extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class Nav extends React.Component {
   }
 
   render() {
+    const logo = withPrefix("/logo.svg");
     const listMenu = ConfMenu.map((menuitem, i) =>
       <Link key={i} className="navbar-item" to={menuitem.url}>
         {menuitem.title}
@@ -18,25 +20,27 @@ class Nav extends React.Component {
     return (
       <nav className="navbar is-primary is-fixed-top">
         <div className="container">
-        <div className="navbar-brand">
-          <Link className="navbar-item" to={"/"}>
-            <b>Flavio Primo</b>
-          </Link>
-          <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
-                onClick={this.toggleBurgerOnClick}>
+          <div className="navbar-brand">
+            <Link className="navbar-item" to={"/"}>
+              <img style={{"height": "28px"}} src={logo}/>
+              &emsp;
+              <b>Flavio Primo</b>
+            </Link>
+            <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
+                  onClick={this.toggleBurgerOnClick}>
             <span/>
             <span/>
             <span/>
           </span>
-        </div>
-        <div className={"navbar-menu" + (this.state.visible ? " is-active" : "")}>
-          <div className="navbar-end">
-            {listMenu}
+          </div>
+          <div className={"navbar-menu" + (this.state.visible ? " is-active" : "")}>
+            <div className="navbar-end">
+              {listMenu}
+            </div>
           </div>
         </div>
-        </div>
       </nav>
-    );
+  );
   }
 
   componentDidMount() {
@@ -55,11 +59,11 @@ class Nav extends React.Component {
 
   toggleBurgerOnResize = () => {
     if (window.innerWidth > 1021) {
-      this.setState({
-        visible: false
-      });
-    }
+    this.setState({
+    visible: false
+  });
+  }
   };
-}
+  }
 
-export default Nav;
+  export default Nav;

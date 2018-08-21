@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { withPrefix } from 'gatsby-link'
+import { withPrefix } from "gatsby-link";
 
 import Layout from "../components/Layout";
 
@@ -9,7 +9,7 @@ class IndexPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.description;
     const contentTitle = this.props.data.site.siteMetadata.title;
-    const bg = withPrefix('/index-bg.jpg');
+    const bg = withPrefix("/index-bg.jpg");
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
