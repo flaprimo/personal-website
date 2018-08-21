@@ -64,7 +64,7 @@ module.exports = {
         background_color: "red",
         theme_color: "red",
         display: "fullscreen",
-        icon: "/logo.png"
+        icon: `${__dirname}/static/logo.svg`
       }
     },
     `gatsby-transformer-sharp`,
