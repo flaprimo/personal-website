@@ -63,7 +63,7 @@ module.exports = {
         start_url: "/",
         background_color: "red",
         theme_color: "red",
-        display: "fullscreen",
+        display: "standalone",
         icon: `${__dirname}/static/logo.svg`
       }
     },
