@@ -25,8 +25,8 @@ class BlogPage extends React.Component {
               const excerpt = node.excerpt;
 
               return (
-                <div className="column is-half">
-                  <div key={slug} className="card"
+                <div key={slug} className="column is-half">
+                  <div className="card"
                        style={{
                          display: "flex",
                          minHeight: "100%",

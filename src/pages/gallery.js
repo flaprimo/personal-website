@@ -27,8 +27,8 @@ class GalleryPage extends React.Component {
               const cover = node.frontmatter.cover.childImageSharp.fluid;
 
               return (
-                <div className="column is-half">
-                  <div key={slug} className="card"
+                <div key={slug} className="column is-half">
+                  <div className="card"
                        style={{
                          display: "flex",
                          minHeight: "100%",

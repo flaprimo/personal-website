@@ -4,49 +4,10 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
 import Tags from "../components/Tags";
-import Gallery from "react-photo-gallery";
-import Lightbox from "react-images";
-// import Jimp from "calipers-jpeg";
-import "flexbin/flexbin.css";
 import Img from "gatsby-image";
 import Header from "../components/Header";
 
 class GalleryElementTemplate extends React.Component {
-  constructor() {
-    super();
-    this.state = { currentImage: 0 };
-    this.closeLightbox = this.closeLightbox.bind(this);
-    this.openLightbox = this.openLightbox.bind(this);
-    this.gotoNext = this.gotoNext.bind(this);
-    this.gotoPrevious = this.gotoPrevious.bind(this);
-  }
-
-  openLightbox(event, obj) {
-    this.setState({
-      currentImage: obj.index,
-      lightboxIsOpen: true
-    });
-  }
-
-  closeLightbox() {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false
-    });
-  }
-
-  gotoPrevious() {
-    this.setState({
-      currentImage: this.state.currentImage - 1
-    });
-  }
-
-  gotoNext() {
-    this.setState({
-      currentImage: this.state.currentImage + 1
-    });
-  }
-
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
@@ -58,30 +19,6 @@ class GalleryElementTemplate extends React.Component {
     const date = galleryElement.frontmatter.date;
     const html = galleryElement.html;
 
-    // let galleryJson = [];
-    // this.props.data.allFile.edges.forEach((element, index) => {
-    //   const image = element.node.childImageSharp.sizes;
-    //   // Jimp.read(image.src, (err, lenna) => {
-    //   //   if (err) throw err;
-    //   //   lenna
-    //   //     .resize(256, 256) // resize
-    //   //     .quality(60) // set JPEG quality
-    //   //     .greyscale() // set greyscale
-    //   //     .write('lena-small-bw.jpg'); // save
-    //   // });
-    //
-    //   galleryJson.push({
-    //     src: image.src,
-    //     srcSet: image.srcSet.split(",\n"),
-    //     alt: "image " + index,
-    //     width: 4,
-    //     height: 3
-    //   });
-    // });
-
-    // console.log(galleryJson);
-
-
     return (
       <Layout contentTitle={title} siteTitle={siteTitle}>
         <Header title={title} subtitle={date + " - " + category}/>
@@ -92,20 +29,11 @@ class GalleryElementTemplate extends React.Component {
 
           <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
-              <div className="column is-narrow">
-                <Img key={i} resolutions={image.node.childImageSharp.resolutions} />
+              <div key={i} className="column is-narrow">
+                <Img resolutions={image.node.childImageSharp.resolutions} />
               </div>
             ))}
           </div>
-
-          {/*<Gallery photos={galleryJson} onClick={this.openLightbox}/>*/}
-          {/*<Lightbox images={galleryJson}*/}
-          {/*onClose={this.closeLightbox}*/}
-          {/*onClickPrev={this.gotoPrevious}*/}
-          {/*onClickNext={this.gotoNext}*/}
-          {/*currentImage={this.state.currentImage}*/}
-          {/*isOpen={this.state.lightboxIsOpen}*/}
-          {/*/>*/}
 
           <Tags tags={tags}/>
 

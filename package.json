@@ -1,19 +1,16 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "flaprimo-website",
+  "description": "Flavio Primo website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Flavio Primo",
   "dependencies": {
     "bluebird": "^3.5.1",
     "bulma": "^0.7.1",
     "bulma-extensions": "^2.2.1",
-    "calipers": "^2.0.1",
-    "calipers-jpeg": "^2.0.0",
-    "flexbin": "^0.2.0",
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-plugin-feed": "next",
-    "gatsby-plugin-manifest": "^1.0.27",
+    "gatsby-plugin-manifest": "next",
     "gatsby-plugin-netlify": "next",
     "gatsby-plugin-nprogress": "next",
     "gatsby-plugin-offline": "next",
@@ -27,15 +24,11 @@
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
-    "jimp": "^0.3.5",
     "lodash": "^4.17.10",
     "prismjs": "^1.15.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-helmet": "^5.2.0",
-    "react-images": "^0.5.19",
-    "react-modal": "^3.5.1",
-    "react-photo-gallery": "^6.2.0"
+    "react-helmet": "^5.2.0"
   },
   "keywords": [
     "gatsby"
@@ -53,12 +46,12 @@
     "eslint": "^5.4.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
-    "gatsby-plugin-eslint": "^1.0.3",
+    "gatsby-plugin-eslint": "^2.0.1",
     "prettier": "^1.14.2",
     "react-social-icons": "^3.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/flaprimo/flaprimo-website"
   }
 }

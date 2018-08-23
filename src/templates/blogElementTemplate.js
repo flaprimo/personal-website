@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
-import Gallery from "react-photo-gallery";
 import Tags from "../components/Tags";
 import Header from "../components/Header";
 

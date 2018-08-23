@@ -30,5 +30,8 @@ export default Layout;
 Layout.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   contentTitle: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]).isRequired
 };
