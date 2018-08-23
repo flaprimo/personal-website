@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
-import ConfMenu from "../../conf/conf-menu";
+import ConfMenu from "../../conf/conf-nav";
 import { withPrefix } from "gatsby-link";
 
 class Nav extends React.Component {
@@ -22,7 +22,7 @@ class Nav extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to={"/"}>
-              <img style={{"height": "28px"}} src={logo}/>
+              <img style={{ "height": "28px" }} src={logo}/>
               &emsp;
               <b>Flavio Primo</b>
             </Link>
@@ -40,7 +40,7 @@ class Nav extends React.Component {
           </div>
         </div>
       </nav>
-  );
+    );
   }
 
   componentDidMount() {
@@ -59,11 +59,11 @@ class Nav extends React.Component {
 
   toggleBurgerOnResize = () => {
     if (window.innerWidth > 1021) {
-    this.setState({
-    visible: false
-  });
-  }
+      this.setState({
+        visible: false
+      });
+    }
   };
-  }
+}
 
-  export default Nav;
+export default Nav;

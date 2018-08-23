@@ -8,12 +8,6 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  "globals": {
-    "angular": false,
-    "module": false,
-    "inject": false,
-    "document": false
-  },
   "env": {
     "browser": true,
     "amd": true,
