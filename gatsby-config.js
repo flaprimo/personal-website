@@ -5,7 +5,7 @@ module.exports = {
     description: "Just another dev blog",
     siteUrl: "https://flaprimo.github.io"
   },
-  pathPrefix: "/flaprimo-website",
+  pathPrefix: "/",
   plugins: [
     "gatsby-plugin-react-helmet",
     {
