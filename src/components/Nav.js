@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "gatsby-link";
-import ConfMenu from "../../conf/conf-nav";
 import { withPrefix } from "gatsby-link";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql } from "gatsby";
 
 class Nav extends React.Component {
   constructor() {
@@ -11,9 +12,10 @@ class Nav extends React.Component {
 
   render() {
     const logo = withPrefix("/logo.svg");
-    const listMenu = ConfMenu.map((menuitem, i) =>
-      <Link key={i} className="navbar-item" to={menuitem.url}>
-        {menuitem.title}
+    const title = this.props.data.site.siteMetadata.title;
+    const nav = this.props.data.site.siteMetadata.nav.map((navitem, i) =>
+      <Link key={i} className="navbar-item" to={navitem.url}>
+        {navitem.title}
       </Link>
     );
 
@@ -24,7 +26,7 @@ class Nav extends React.Component {
             <Link className="navbar-item" to={"/"}>
               <img style={{ "height": "28px" }} src={logo}/>
               &emsp;
-              <b>Flavio Primo</b>
+              <b>{ title }</b>
             </Link>
             <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
                   onClick={this.toggleBurgerOnClick}>
@@ -35,7 +37,7 @@ class Nav extends React.Component {
           </div>
           <div className={"navbar-menu" + (this.state.visible ? " is-active" : "")}>
             <div className="navbar-end">
-              {listMenu}
+              {nav}
             </div>
           </div>
         </div>
@@ -66,4 +68,33 @@ class Nav extends React.Component {
   };
 }
 
-export default Nav;
+/* Query */
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query NavQuery {
+        site {
+          siteMetadata {
+            title,
+            nav {
+              title,
+              url
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Nav data={data} {...props} />}
+  />
+)
+
+Nav.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        nav: PropTypes.array.isRequired
+      }).isRequired
+    }).isRequired
+  }).isRequired
+};
