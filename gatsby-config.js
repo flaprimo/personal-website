@@ -3,7 +3,7 @@ module.exports = {
     title: "Flavio Primo",
     author: "Flavio Primo",
     description: "Just another dev blog",
-    siteUrl: "https://flaprimo.github.io"
+    siteUrl: "https://flaprimo.netlify.com/"
   },
   pathPrefix: "/",
   plugins: [
