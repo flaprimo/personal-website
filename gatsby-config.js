@@ -71,6 +71,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-nprogress`,
     `gatsby-plugin-feed`,
+    `gatsby-plugin-purgecss`,
     `gatsby-plugin-offline`,
     "gatsby-plugin-netlify"
   ]
