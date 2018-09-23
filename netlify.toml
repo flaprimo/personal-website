@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "/photography/*"
+  to = "/gallery/:splat"
+
+[[redirects]]
+  from = "/programming-languages/*"
+  to = "/blog/:splat"
+
+[[redirects]]
+  from = "/arduino/*"
+  to = "/blog/:splat"
+
+[[redirects]]
+  from = "/os/windows/*"
+  to = "/blog/:splat"
+
+[[redirects]]
+  from = "/os/*"
+  to = "/blog/:splat"
+
+[[redirects]]
+  from = "/university/*"
+  to = "/blog/:splat"
