@@ -12,7 +12,7 @@ class IndexPage extends React.Component {
     const bg = withPrefix("/index-bg.jpg");
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <div className="hero is-primary is-medium is-fullheight"
              style={{
                "marginTop": "-52px",
@@ -51,6 +51,7 @@ export const pageQuery = graphql`
 `;
 
 IndexPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

@@ -20,7 +20,7 @@ class GalleryElementTemplate extends React.Component {
     const html = galleryElement.html;
 
     return (
-      <Layout contentTitle={title} siteTitle={siteTitle}>
+      <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
         <Header title={title} subtitle={date + " - " + category}/>
 
         <div className="container section">
@@ -83,6 +83,7 @@ export const pageQuery = graphql`
 `;
 
 GalleryElementTemplate.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

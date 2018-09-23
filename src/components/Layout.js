@@ -17,7 +17,7 @@ class Layout extends React.Component {
           <html className="has-navbar-fixed-top"/>
         </Helmet>
 
-        <Nav/>
+        <Nav location={location}/>
         {children}
         <Footer/>
       </div>
@@ -30,6 +30,7 @@ export default Layout;
 Layout.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   contentTitle: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object

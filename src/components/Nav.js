@@ -14,7 +14,8 @@ class Nav extends React.Component {
     const logo = withPrefix("/logo.svg");
     const title = this.props.data.site.siteMetadata.title;
     const nav = this.props.data.site.siteMetadata.nav.map((navitem, i) =>
-      <Link key={i} className="navbar-item" to={navitem.url}>
+      <Link key={i} className={"navbar-item" +
+      ("/" + this.props.location.pathname.split('/')[1] === navitem.url ? " is-active" : "")} to={navitem.url}>
         {navitem.title}
       </Link>
     );
@@ -89,6 +90,7 @@ export default props => (
 )
 
 Nav.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

@@ -10,7 +10,7 @@ class AboutPage extends Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Let's talk about me"/>
 
         <div className="container content section">
@@ -45,6 +45,7 @@ export const pageQuery = graphql`
 `;
 
 AboutPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

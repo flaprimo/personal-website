@@ -12,7 +12,7 @@ class BlogPage extends React.Component {
     const blogElements = this.props.data.allMarkdownRemark.edges;
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Welcome to the blog"/>
 
         <div className="container section">
@@ -92,6 +92,7 @@ export const pageQuery = graphql`
 `;
 
 BlogPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

@@ -10,7 +10,7 @@ class NotFoundPage extends Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Page not found"/>
 
         <div className="container content section">
@@ -34,6 +34,7 @@ export const pageQuery = graphql`
 `;
 
 NotFoundPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

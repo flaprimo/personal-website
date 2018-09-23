@@ -10,7 +10,7 @@ class CookiePolicyPage extends Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Come to the dark side, we have cookies!"/>
 
         <div className="container content section">
@@ -43,6 +43,7 @@ export const pageQuery = graphql`
 `;
 
 CookiePolicyPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
