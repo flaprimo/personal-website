@@ -8,7 +8,7 @@ import "bulma/css/bulma.css";
 
 class Layout extends React.Component {
   render() {
-    const { siteTitle, contentTitle, children } = this.props;
+    const { siteTitle, contentTitle, location, children } = this.props;
     const title = `${contentTitle} | ${siteTitle}`;
     return (
       <div>
