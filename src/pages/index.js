@@ -9,11 +9,11 @@ class IndexPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.description;
     const contentTitle = this.props.data.site.siteMetadata.title;
-    const bg = withPrefix("/index-bg.jpg");
+    const bg = withPrefix("/index-bg.gits-head-shadows.svg");
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
-        <div className="hero is-primary is-medium is-fullheight"
+        <div className="hero is-medium is-fullheight"
              style={{
                "marginTop": "-52px",
                "paddingTop": "52px",
@@ -23,11 +23,15 @@ class IndexPage extends React.Component {
              }}>
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title has-text-primary">
-                Hi everyone!
+              <h1 className="title is-size-1 has-text-white has-text-weight-bold" style={{
+                textShadow: "1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 2px rgba(150, 150, 150, 1)"
+              }}>
+                FLAVIO PRIMO
               </h1>
-              <h2 className="subtitle has-text-primary">
-                Welcome to my new website
+              <h2 className="subtitle is-size-2 has-text-white has-text-weight-bold" style={{
+                textShadow: "1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 2px rgba(150, 150, 150, 1)"
+              }}>
+                Just another dev blog_
               </h2>
             </div>
           </div>
