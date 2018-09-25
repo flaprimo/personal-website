@@ -17,7 +17,8 @@ class Layout extends React.Component {
         marginTop: "-52px",
         paddingTop: "52px",
         backgroundImage: "url(" + bg + ")",
-        backgroundPosition: "center center"
+        backgroundPosition: "center center",
+        backgroundRepeat: "repeat-y"
       }}>
         <Helmet>
           <title>{title}</title>
