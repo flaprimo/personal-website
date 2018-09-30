@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import NextPrevElements from "../components/NextPrevElements";
 import Tags from "../components/Tags";
 import Header from "../components/Header";
+import Comments from "../components/Comments";
 
 class BlogElementTemplate extends React.Component {
   render() {
@@ -22,12 +23,15 @@ class BlogElementTemplate extends React.Component {
       <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
         <Header title={title} subtitle={date + " - " + category}/>
 
-        <div className="container section">
+        <div className="container section" style={{
+          backgroundColor: "rgba(255,255,255, 0.9)"
+        }}>
           <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
           <Tags tags={tags}/>
 
           <NextPrevElements type={"/blog"} previous={previous} next={next}/>
+          <Comments title={title} type="blog"/>
         </div>
       </Layout>
     );
