@@ -22,17 +22,21 @@ class IndexPage extends React.Component {
                backgroundSize: "cover",
                backgroundColor: "white"
              }}>
-          <div className="hero-body">
-            <div className="container has-text-centered" style={{
-              backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 35px," +
-                "rgba(0,0,0,1) 35px, rgba(0,0,0,1) 70px)",
-              padding: "20px",
-              textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000"
+          <div className="hero-body"/>
+          <div className="hero-foot">
+            <div className="container" style={{
+              paddingBottom: "20px",
+              textShadow: "5px 5px 15px rgba(0,0,0,0.6)",
+              "-webkit-text-stroke": "1px black"
             }}>
-              <h1 className="title is-size-1 has-text-white has-text-weight-bold">
+              <h1 className="title has-text-white has-text-weight-bold" style={{
+                fontSize: "6em"
+              }}>
                 FLAVIO PRIMO
               </h1>
-              <h2 className="subtitle is-size-2 has-text-white has-text-weight-bold">
+              <h2 className="subtitle has-text-white" style={{
+                fontSize: "4em"
+              }}>
                 Just another dev blog_
               </h2>
             </div>
