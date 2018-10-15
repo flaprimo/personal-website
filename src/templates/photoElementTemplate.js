@@ -12,21 +12,22 @@ class PhotoElementTemplate extends React.Component {
     const title = `${gallery} | ${siteTitle}`;
     const baseUrl = this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf("/") + 1);
 
-    let previousPreload = "";
+    // let previousPreload = "";
     let previousButton = "";
     if (previous != null) {
       const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
-      const previousImage = previous.childImageSharp.resize.src;
-      previousPreload = <img src={this.props.location.origin + previousImage} style={{height: 0, width: 0}}/>;
+      // const previousImage = previous.childImageSharp.resize.src;
+      // previousPreload = <link rel="prefetch" as="image" href={this.props.location.origin + previousImage}/>;
+      // previousPreload = <link rel="preload" as="image" href={previousImage}/>;
       previousButton = <Link to={previousImagePage} replace>Previous</Link>;
     }
 
-    let nextPreload = "";
+    // let nextPreload = "";
     let nextButton = "";
     if (next != null) {
       const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
-      const nextImage = next.childImageSharp.resize.src;
-      nextPreload = <img src={this.props.location.origin + nextImage} style={{height: 0, width: 0}}/>;
+      // const nextImage = next.childImageSharp.resize.src;
+      // nextPreload = <link rel="preload" as="image" href={nextImage}/>;
       nextButton = <Link to={nextImagePage} replace>Next</Link>;
     }
 console.log(this.props.location.origin);
@@ -45,7 +46,8 @@ console.log(this.props.location.origin);
       <div className="hero has-background-black is-fullheight">
         <Helmet>
           <title>{title}</title>
-
+          {/*{nextPreload}*/}
+          {/*{previousPreload}*/}
         </Helmet>
 
         <div className="hero-body" style={{
@@ -60,7 +62,7 @@ console.log(this.props.location.origin);
             alignItems: "center"
           }}>
             <img style={{
-              backgroundImage: `url("${decodeURIComponent(photo.tracedSVG)}")`,
+              // backgroundImage: `url("${decodeURIComponent(photo.tracedSVG)}")`,
               width: "auto",
               height: "auto",
               maxWidth: "100%",
@@ -74,8 +76,6 @@ console.log(this.props.location.origin);
           }}>
             {previousButton}
             {nextButton}
-            {nextPreload}
-            {previousPreload}
             <Link to={baseUrl}>Close</Link>
           </div>
         </div>
