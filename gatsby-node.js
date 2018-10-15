@@ -18,7 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
       const next = index === 0 ? null : elements[index - 1].node;
 
       createPage({
-        path: type + element.node.fields.slug,
+        path: type + slug,
         component: template,
         context: {
           slug: slug,
@@ -29,6 +29,47 @@ exports.createPages = ({ graphql, actions }) => {
     })
   );
 
+  const createCustomGallery = (elements, type, template) => {
+    const getGalleries = (elements) => {
+      const g = {};
+      elements.forEach((e) => {
+        const galleryName = e.node.relativePath.split('/')[0];
+        if (g[galleryName] == null)
+          g[galleryName] = [];
+        g[galleryName].push(e.node);
+      });
+
+      return g;
+    };
+
+    const galleries = getGalleries(elements.reverse());
+
+    for (let galleryName in galleries) {
+      console.log("adding gallery " + galleryName);
+
+      if (galleries.hasOwnProperty(galleryName)) {
+        const gallery = galleries[galleryName];
+
+        gallery.forEach((element, index) => {
+          const slug = "/" + element.relativePath.split(".")[0] + "/";
+          const previous = index === gallery.length - 1 ? null : gallery[index + 1];
+          const next = index === 0 ? null : gallery[index - 1];
+
+          createPage({
+            path: type + slug,
+            component: template,
+            context: {
+              slug: slug,
+              gallery: type + "/" + galleryName + "/",
+              previous,
+              next
+            }
+          });
+        });
+      }
+    }
+  };
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -38,7 +79,6 @@ exports.createPages = ({ graphql, actions }) => {
             filter: {fileAbsolutePath: {regex: "/blog/"}},
             sort: {fields: [frontmatter___date], order: DESC})
           {
-            totalCount
             edges {
               node {
                 fields {
@@ -50,11 +90,10 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          gallery: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/gallery/"}},
+          photography: allMarkdownRemark(
+            filter: {fileAbsolutePath: {regex: "/photography/"}},
             sort: {fields: [frontmatter___date], order: DESC})
-          {
-            totalCount
+          {            
             edges {
               node {
                 fields {
@@ -63,6 +102,17 @@ exports.createPages = ({ graphql, actions }) => {
                 frontmatter {
                   date(formatString: "DD MMMM YYYY")
                 }
+              }
+            }
+          }
+          photo: allFile(filter: {
+            sourceInstanceName: {eq: "photography"},
+            internal: {mediaType: {eq: "image/jpeg"}}
+          })
+          {
+            edges {
+              node {
+                relativePath
               }
             }
           }
@@ -75,13 +125,16 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const blogTemplate = path.resolve("./src/templates/blogElementTemplate.js");
-        const galleryTemplate = path.resolve("./src/templates/galleryElementTemplate.js");
+        const photographyTemplate = path.resolve("./src/templates/photographyElementTemplate.js");
+        const photoTemplate = path.resolve("./src/templates/photoElementTemplate.js");
 
         const blogElements = result.data.blog.edges;
-        const galleryElements = result.data.gallery.edges;
+        const photographyElements = result.data.photography.edges;
+        const photoElements = result.data.photo.edges;
 
         createCustomPage(blogElements, "/blog", blogTemplate);
-        createCustomPage(galleryElements, "/gallery", galleryTemplate);
+        createCustomPage(photographyElements, "/photography", photographyTemplate);
+        createCustomGallery(photoElements, "/photography", photoTemplate);
       })
     );
   });
@@ -90,7 +143,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === "MarkdownRemark") {
     createNodeField({
       name: "slug",
       node,

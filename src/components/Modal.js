@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class Modal extends React.Component {
   constructor() {
     super();
-    this.state = { visible: false };
+    this.state = { visible: true };
   }
 
   render() {

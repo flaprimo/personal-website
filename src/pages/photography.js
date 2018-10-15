@@ -6,15 +6,15 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
 
-class GalleryPage extends React.Component {
+class PhotographyPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const contentTitle = "Gallery";
+    const contentTitle = "Photography";
     const blogElements = this.props.data.allMarkdownRemark.edges;
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
-        <Header title={contentTitle} subtitle="Welcome to the gallery"/>
+        <Header title={contentTitle} subtitle="Welcome to the photo gallery"/>
 
         <div className="container section">
           <div className="columns is-multiline is-centered">
@@ -40,7 +40,7 @@ class GalleryPage extends React.Component {
 
                     <div className="card-content" style={{flex: "1"}}>
                       <h3 className="is-size-4">
-                        <Link to={"/gallery" + slug}>
+                        <Link to={"/photography" + slug}>
                           {title}
                         </Link>
                       </h3>
@@ -65,17 +65,17 @@ class GalleryPage extends React.Component {
   }
 }
 
-export default GalleryPage;
+export default PhotographyPage;
 
 export const pageQuery = graphql`
-  query galleryPageQuery {
+  query photographyPageQuery {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/gallery/"}},
+      filter: {fileAbsolutePath: {regex: "/photography/"}},
       sort: { fields: [frontmatter___date], order: DESC })
     {
       edges {
@@ -103,7 +103,7 @@ export const pageQuery = graphql`
   }
 `;
 
-GalleryPage.propTypes = {
+PhotographyPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({

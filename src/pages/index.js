@@ -13,10 +13,8 @@ class IndexPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
-        <div className="hero is-medium is-fullheight"
+        <div className="hero is-medium is-fullheight-with-navbar"
              style={{
-               marginTop: "-52px",
-               paddingTop: "52px",
                backgroundImage: "url(" + bg + ")",
                backgroundPosition: "center center",
                backgroundSize: "cover",

@@ -6,48 +6,52 @@ import NextPrevElements from "../components/NextPrevElements";
 import Tags from "../components/Tags";
 import Img from "gatsby-image";
 import Header from "../components/Header";
+import Link from "gatsby-link";
 
-class GalleryElementTemplate extends React.Component {
+class PhotographyElementTemplate extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
 
-    const galleryElement = this.props.data.markdownRemark;
-    const title = galleryElement.frontmatter.title;
-    const category = galleryElement.frontmatter.category;
-    const tags = galleryElement.frontmatter.tags;
-    const date = galleryElement.frontmatter.date;
-    const html = galleryElement.html;
+    const photographyElement = this.props.data.markdownRemark;
+    const title = photographyElement.frontmatter.title;
+    const category = photographyElement.frontmatter.category;
+    const tags = photographyElement.frontmatter.tags;
+    const date = photographyElement.frontmatter.date;
+    const html = photographyElement.html;
 
     return (
       <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
         <Header title={title} subtitle={date + " - " + category}/>
 
-        <div className="container section">
+        <div className="container section" style={{
+          backgroundColor: "rgba(255,255,255, 0.9)"
+        }}>
 
           <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
-
+          {console.log(this.props.location.pathname)}
           <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
-              <div key={i} className="column is-narrow">
+              <Link key={i} className="column is-narrow"
+                    to={this.props.location.pathname +
+                    image.node.childImageSharp.resolutions.src.split('/')[2].split('-')[0]}>
                 <Img resolutions={image.node.childImageSharp.resolutions} />
-              </div>
+              </Link>
             ))}
           </div>
-
           <Tags tags={tags}/>
 
-          <NextPrevElements type={"/gallery"} previous={previous} next={next}/>
+          <NextPrevElements type={"/photography"} previous={previous} next={next}/>
         </div>
       </Layout>
     );
   }
 }
 
-export default GalleryElementTemplate;
+export default PhotographyElementTemplate;
 
 export const pageQuery = graphql`
-  query galleryElementQuery($slug: String!) {
+  query photographyElementQuery($slug: String!) {
     site {
       siteMetadata {
         title
@@ -64,11 +68,10 @@ export const pageQuery = graphql`
       }
     }
     allFile(filter: {
-      sourceInstanceName: {eq: "gallery"},
+      sourceInstanceName: {eq: "photography"},
       internal: {mediaType: {eq: "image/jpeg"}},
       absolutePath: {regex: $slug}
     }) {
-      totalCount
       edges {
         node {
           childImageSharp {
@@ -82,7 +85,7 @@ export const pageQuery = graphql`
   }
 `;
 
-GalleryElementTemplate.propTypes = {
+PhotographyElementTemplate.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({

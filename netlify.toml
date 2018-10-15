@@ -1,8 +1,4 @@
 [[redirects]]
-  from = "/photography/*"
-  to = "/gallery/:splat"
-
-[[redirects]]
   from = "/programming-languages/*"
   to = "/blog/:splat"
 

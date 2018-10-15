@@ -14,8 +14,8 @@ module.exports = {
         url: "/blog"
       },
       {
-        title: "Gallery",
-        url: "/gallery"
+        title: "Photography",
+        url: "/photography"
       },
       {
         title: "About",
@@ -63,8 +63,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/content/gallery`,
-        name: "gallery"
+        path: `${__dirname}/content/photography`,
+        name: "photography"
       }
     },
     {

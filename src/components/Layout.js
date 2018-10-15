@@ -14,8 +14,6 @@ class Layout extends React.Component {
     const bg = withPrefix("/index-bg.gits-head.svg");
     return (
       <div style={{
-        marginTop: "-52px",
-        paddingTop: "52px",
         backgroundImage: "url(" + bg + ")",
         backgroundPosition: "center center",
         backgroundRepeat: "repeat-y"
