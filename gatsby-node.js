@@ -113,6 +113,11 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 relativePath
+                childImageSharp {
+                  resize(width: 1000) {
+                    src
+                  }
+                }
               }
             }
           }

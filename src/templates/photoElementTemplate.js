@@ -3,13 +3,35 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import "bulma/css/bulma.css";
 import Link from "gatsby-link";
+import Helmet from "react-helmet";
 
 class PhotoElementTemplate extends React.Component {
   render() {
-    // const siteTitle = this.props.data.site.siteMetadata.title;
-    const {gallery, previous, next } = this.props.pageContext;
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const { gallery, previous, next } = this.props.pageContext;
+    const title = `${gallery} | ${siteTitle}`;
     const baseUrl = this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf("/") + 1);
+
+    let previousPreload = "";
+    let previousButton = "";
+    if (previous != null) {
+      const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
+      const previousImage = previous.childImageSharp.resize.src;
+      previousPreload = <img src={this.props.location.origin + previousImage} style={{height: 0, width: 0}}/>;
+      previousButton = <Link to={previousImagePage} replace>Previous</Link>;
+    }
+
+    let nextPreload = "";
+    let nextButton = "";
+    if (next != null) {
+      const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
+      const nextImage = next.childImageSharp.resize.src;
+      nextPreload = <img src={this.props.location.origin + nextImage} style={{height: 0, width: 0}}/>;
+      nextButton = <Link to={nextImagePage} replace>Next</Link>;
+    }
+console.log(this.props.location.origin);
     console.log(gallery);
+    // console.log(previous);
 
     const photo = this.props.data.photo.childImageSharp.resize;
     // const blogElement = this.props.data.markdownRemark;
@@ -21,6 +43,11 @@ class PhotoElementTemplate extends React.Component {
 
     return (
       <div className="hero has-background-black is-fullheight">
+        <Helmet>
+          <title>{title}</title>
+
+        </Helmet>
+
         <div className="hero-body" style={{
           padding: 0,
           alignItems: "normal",
@@ -33,25 +60,22 @@ class PhotoElementTemplate extends React.Component {
             alignItems: "center"
           }}>
             <img style={{
-              // backgroundImage: `url("${decodeURIComponent(photo.tracedSVG)}")`,
+              backgroundImage: `url("${decodeURIComponent(photo.tracedSVG)}")`,
               width: "auto",
               height: "auto",
               maxWidth: "100%",
               maxHeight: "100%"
             }}
                  src={photo.src} height={photo.height} width={photo.width}/>
-
           </div>
           <div style={{
             backgroundColor: "grey",
             height: "10vh"
           }}>
-            {previous != null &&
-            <Link to={baseUrl + previous.relativePath.split("/")[1].split(".")[0]} replace>Previous</Link>
-            }
-            {next != null &&
-            <Link to={baseUrl + next.relativePath.split("/")[1].split(".")[0]} replace>Next</Link>
-            }
+            {previousButton}
+            {nextButton}
+            {nextPreload}
+            {previousPreload}
             <Link to={baseUrl}>Close</Link>
           </div>
         </div>
