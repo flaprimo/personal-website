@@ -29,13 +29,12 @@ class PhotographyElementTemplate extends React.Component {
         }}>
 
           <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
-          {console.log(this.props.location.pathname)}
           <div className="columns is-multiline is-centered">
             {this.props.data.allFile.edges.map((image, i) => (
               <Link key={i} className="column is-narrow"
                     to={this.props.location.pathname +
-                    image.node.childImageSharp.resolutions.src.split('/')[2].split('-')[0]}>
-                <Img resolutions={image.node.childImageSharp.resolutions} />
+                    image.node.childImageSharp.resolutions.src.split("/")[2].split("-")[0]}>
+                <Img resolutions={image.node.childImageSharp.resolutions}/>
               </Link>
             ))}
           </div>

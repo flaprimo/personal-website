@@ -12,27 +12,23 @@ class PhotoElementTemplate extends React.Component {
     const title = `${gallery} | ${siteTitle}`;
     const baseUrl = this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf("/") + 1);
 
-    // let previousPreload = "";
+    let previousPreload = "";
     let previousButton = "";
     if (previous != null) {
       const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
-      // const previousImage = previous.childImageSharp.resize.src;
-      // previousPreload = <link rel="prefetch" as="image" href={this.props.location.origin + previousImage}/>;
-      // previousPreload = <link rel="preload" as="image" href={previousImage}/>;
+      const previousImage = previous.childImageSharp.resize.src;
+      previousPreload = <link rel="preload" as="image" href={previousImage}/>;
       previousButton = <Link to={previousImagePage} replace>Previous</Link>;
     }
 
-    // let nextPreload = "";
+    let nextPreload = "";
     let nextButton = "";
     if (next != null) {
       const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
-      // const nextImage = next.childImageSharp.resize.src;
-      // nextPreload = <link rel="preload" as="image" href={nextImage}/>;
+      const nextImage = next.childImageSharp.resize.src;
+      nextPreload = <link rel="preload" as="image" href={nextImage}/>;
       nextButton = <Link to={nextImagePage} replace>Next</Link>;
     }
-console.log(this.props.location.origin);
-    console.log(gallery);
-    // console.log(previous);
 
     const photo = this.props.data.photo.childImageSharp.resize;
     // const blogElement = this.props.data.markdownRemark;
@@ -46,8 +42,8 @@ console.log(this.props.location.origin);
       <div className="hero has-background-black is-fullheight">
         <Helmet>
           <title>{title}</title>
-          {/*{nextPreload}*/}
-          {/*{previousPreload}*/}
+          {nextPreload}
+          {previousPreload}
         </Helmet>
 
         <div className="hero-body" style={{
@@ -99,7 +95,6 @@ export const pageQuery = graphql`
           src
           height
           width
-          tracedSVG
         }
       }
     }
