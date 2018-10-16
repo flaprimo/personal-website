@@ -76,7 +76,6 @@ class PhotoElementTemplate extends React.Component {
       <div className="hero has-background-black is-fullheight">
         <Helmet>
           <title>{title}</title>
-          <html style="overflow: hidden"/>
           {nextPreload}
           {previousPreload}
         </Helmet>
