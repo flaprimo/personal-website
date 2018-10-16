@@ -18,7 +18,24 @@ class PhotoElementTemplate extends React.Component {
       const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
       const previousImage = previous.childImageSharp.resize.src;
       previousPreload = <link rel="preload" as="image" href={previousImage}/>;
-      previousButton = <Link to={previousImagePage} replace>Previous</Link>;
+      previousButton = <Link to={previousImagePage} replace>
+        <p className="control">
+          <a className="button is-dark" style={{
+            borderTopLeftRadius: "4px",
+            borderBottomLeftRadius: "4px"
+          }}>
+            <span className="icon is-small">
+              <i className="arrow-left" style={{
+                border: "solid #f5f5f5",
+                borderWidth: "0 2px 2px 0",
+                display: "inline-block",
+                padding: "3px",
+                transform: "rotate(135deg)"
+              }}/>
+            </span>
+          </a>
+        </p>
+      </Link>;
     }
 
     let nextPreload = "";
@@ -27,7 +44,24 @@ class PhotoElementTemplate extends React.Component {
       const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
       const nextImage = next.childImageSharp.resize.src;
       nextPreload = <link rel="preload" as="image" href={nextImage}/>;
-      nextButton = <Link to={nextImagePage} replace>Next</Link>;
+      nextButton = <Link to={nextImagePage} replace>
+        <p className="control">
+          <a className="button is-dark" style={{
+            borderTopRightRadius: "4px",
+            borderBottomRightRadius: "4px"
+          }}>
+            <span className="icon is-small is-rounded">
+              <i className="arrow-right" style={{
+                border: "solid #f5f5f5",
+                borderWidth: "0 2px 2px 0",
+                display: "inline-block",
+                padding: "3px",
+                transform: "rotate(-45deg)"
+              }}/>
+            </span>
+          </a>
+        </p>
+      </Link>;
     }
 
     const photo = this.props.data.photo.childImageSharp.resize;
@@ -42,6 +76,7 @@ class PhotoElementTemplate extends React.Component {
       <div className="hero has-background-black is-fullheight">
         <Helmet>
           <title>{title}</title>
+          <html style="overflow: hidden"/>
           {nextPreload}
           {previousPreload}
         </Helmet>
@@ -66,14 +101,45 @@ class PhotoElementTemplate extends React.Component {
             }}
                  src={photo.src} height={photo.height} width={photo.width}/>
           </div>
-          <div style={{
-            backgroundColor: "grey",
-            height: "10vh"
+          <nav className="level is-mobile" style={{
+            height: "10vh",
+            paddingLeft: "1rem",
+            paddingRight: "1rem"
           }}>
-            {previousButton}
-            {nextButton}
-            <Link to={baseUrl}>Close</Link>
-          </div>
+              <div className="level-left">
+                <div className="field has-addons">
+                  {previousButton}
+                  {nextButton}
+                </div>
+              </div>
+              <div className="level-right">
+                <Link to={baseUrl}>
+                  <p className="control">
+                    <a className="button is-dark" style={{
+                      borderTopRightRadius: "4px",
+                      borderBottomRightRadius: "4px"
+                    }}>
+                      <span className="icon is-small is-rounded">
+                        <i className="arrow-right" style={{
+                          border: "solid #f5f5f5",
+                          borderWidth: "0 2px 2px 0",
+                          display: "inline-block",
+                          padding: "3px",
+                          transform: "rotate(-45deg)"
+                        }}/>
+                        <i className="arrow-left" style={{
+                          border: "solid #f5f5f5",
+                          borderWidth: "0 2px 2px 0",
+                          display: "inline-block",
+                          padding: "3px",
+                          transform: "rotate(135deg)"
+                        }}/>
+                      </span>
+                    </a>
+                  </p>
+                </Link>
+              </div>
+          </nav>
         </div>
       </div>
     );

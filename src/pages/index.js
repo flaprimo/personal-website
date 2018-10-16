@@ -25,7 +25,7 @@ class IndexPage extends React.Component {
             <div className="container" style={{
               paddingBottom: "20px",
               textShadow: "5px 5px 15px rgba(0,0,0,0.6)",
-              "-webkit-text-stroke": "1px black"
+              WebkitTextStroke: "1px black"
             }}>
               <h1 className="title has-text-white has-text-weight-bold" style={{
                 fontSize: "6em"
