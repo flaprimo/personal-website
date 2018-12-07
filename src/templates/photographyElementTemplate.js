@@ -33,7 +33,7 @@ class PhotographyElementTemplate extends React.Component {
             {this.props.data.allFile.edges.map((image, i) => (
               <Link key={i} className="column is-narrow"
                     to={this.props.location.pathname +
-                    image.node.childImageSharp.resolutions.src.split("/")[2].split("-")[0]}>
+                    image.node.childImageSharp.resolutions.src.split("/")[4].split(".")[0]}>
                 <Img resolutions={image.node.childImageSharp.resolutions}/>
               </Link>
             ))}
