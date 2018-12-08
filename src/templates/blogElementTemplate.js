@@ -28,7 +28,9 @@ class BlogElementTemplate extends React.Component {
         }}>
           <div className="columns is-centered">
             <div className="column is-7">
-              <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
+              <div className="content"
+                   style={{wordWrap: "break-word"}}
+                   dangerouslySetInnerHTML={{ __html: html }}/>
 
               <Tags tags={tags}/>
 
