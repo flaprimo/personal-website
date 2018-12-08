@@ -17,7 +17,9 @@ class PhotographyPage extends React.Component {
         <Header title={contentTitle} subtitle="Welcome to the photo gallery"/>
 
         <div className="container section">
-          <div className="columns is-multiline is-centered">
+          <div className="columns is-centered">
+            <div className="column is-9">
+              <div className="columns is-multiline is-centered">
             {blogElements.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug;
               const slug = node.fields.slug;
@@ -58,6 +60,8 @@ class PhotographyPage extends React.Component {
                 </div>
               );
             })}
+            </div>
+            </div>
           </div>
         </div>
       </Layout>

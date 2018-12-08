@@ -15,8 +15,11 @@ const SocialButtons = ({ data }) => (
       {data.site.siteMetadata.social.map((social, i) => (
         <li key={i} style={{ display: "inline-block", marginRight: "10px" }}>
           <SocialIcon url={social.baseurl + social.user}
-                      color="#ff5a01"
-                      style={{ height: 40, width: 40 }}/>
+                      color="#363636"
+                      style={{
+                        height: 40,
+                        width: 40
+                      }}/>
         </li>
       ))}
     </ul>

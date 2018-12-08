@@ -26,12 +26,16 @@ class BlogElementTemplate extends React.Component {
         <div className="container section" style={{
           backgroundColor: "rgba(255,255,255, 0.9)"
         }}>
-          <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
+          <div className="columns is-centered">
+            <div className="column is-7">
+              <div className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
-          <Tags tags={tags}/>
+              <Tags tags={tags}/>
 
-          <NextPrevElements type={"/blog"} previous={previous} next={next}/>
-          <Comments title={title} type="blog"/>
+              <NextPrevElements type={"/blog"} previous={previous} next={next}/>
+              <Comments title={title} type="blog"/>
+            </div>
+          </div>
         </div>
       </Layout>
     );

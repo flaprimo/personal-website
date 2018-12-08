@@ -13,8 +13,12 @@ class NotFoundPage extends Component {
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Page not found"/>
 
-        <div className="container content section">
-          <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <div className="container section">
+          <div className="columns is-centered">
+            <div className="content column is-7">
+              <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+            </div>
+          </div>
         </div>
       </Layout>
     );
