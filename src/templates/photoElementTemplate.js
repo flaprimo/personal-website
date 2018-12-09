@@ -98,7 +98,9 @@ class PhotoElementTemplate extends React.Component {
               maxWidth: "100%",
               maxHeight: "100%"
             }}
-                 src={photo.src} height={photo.height} width={photo.width}/>
+                 src={photo.src} height={photo.height} width={photo.width}
+                 alt="photo in the gallery"
+            />
           </div>
           <nav className="level is-mobile" style={{
             height: "10vh",

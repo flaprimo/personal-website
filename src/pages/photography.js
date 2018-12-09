@@ -37,7 +37,7 @@ class PhotographyPage extends React.Component {
                          flexDirection: "column"
                        }}>
                     <div className="card-image">
-                      <Img className="image" fluid={cover}/>
+                      <Img className="image" fluid={cover} alt="cover image"/>
                     </div>
 
                     <div className="card-content" style={{flex: "1"}}>

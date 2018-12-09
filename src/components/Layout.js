@@ -14,7 +14,7 @@ class Layout extends React.Component {
       <div>
         <Helmet>
           <title>{title}</title>
-          <html className="has-navbar-fixed-top"/>
+          <html className="has-navbar-fixed-top" lang="en-US"/>
         </Helmet>
 
         <Nav location={location}/>

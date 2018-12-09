@@ -34,7 +34,7 @@ class PhotographyElementTemplate extends React.Component {
               <Link key={i} className="column is-narrow"
                     to={this.props.location.pathname +
                     image.node.childImageSharp.resolutions.src.split("/")[4].split(".")[0]}>
-                <Img resolutions={image.node.childImageSharp.resolutions}/>
+                <Img resolutions={image.node.childImageSharp.resolutions} alt="big size photo in the gallery"/>
               </Link>
             ))}
           </div>

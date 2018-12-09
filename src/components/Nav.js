@@ -25,7 +25,7 @@ class Nav extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to={"/"}>
-              <img style={{ "height": "28px" }} src={logo}/>
+              <img style={{ "height": "28px" }} src={logo} alt="logo"/>
               &emsp;
               <b>{ title }</b>
             </Link>
