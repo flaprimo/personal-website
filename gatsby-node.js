@@ -108,7 +108,8 @@ exports.createPages = ({ graphql, actions }) => {
           photo: allFile(filter: {
             sourceInstanceName: {eq: "photography"},
             internal: {mediaType: {eq: "image/jpeg"}}
-          })
+          },
+          sort: {fields: [name], order: ASC})
           {
             edges {
               node {

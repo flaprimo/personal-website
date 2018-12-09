@@ -66,11 +66,15 @@ export const pageQuery = graphql`
         tags
       }
     }
-    allFile(filter: {
+    allFile(
+    filter: {
       sourceInstanceName: {eq: "photography"},
       internal: {mediaType: {eq: "image/jpeg"}},
       absolutePath: {regex: $slug}
-    }) {
+    },
+    sort: {fields: [name], order: ASC}
+    )
+    {
       edges {
         node {
           childImageSharp {
