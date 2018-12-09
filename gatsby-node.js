@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
       return g;
     };
 
-    const galleries = getGalleries(elements.reverse());
+    const galleries = getGalleries(elements);
 
     for (let galleryName in galleries) {
       console.log("adding gallery " + galleryName);
@@ -109,7 +109,7 @@ exports.createPages = ({ graphql, actions }) => {
             sourceInstanceName: {eq: "photography"},
             internal: {mediaType: {eq: "image/jpeg"}}
           },
-          sort: {fields: [name], order: ASC})
+          sort: {fields: [name], order: DESC})
           {
             edges {
               node {
