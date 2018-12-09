@@ -112,7 +112,7 @@ class PhotoElementTemplate extends React.Component {
                 </div>
               </div>
               <div className="level-right">
-                <Link to={baseUrl}>
+                <Link to={baseUrl} replace>
                   <p className="control">
                     <a className="button is-dark" style={{
                       borderTopRightRadius: "4px",
