@@ -1,6 +1,6 @@
 ---
 title: Wylcome to Edinburgh!
-date: "2018-15-20T00:00:00.000Z"
+date: "2018-11-20T00:00:00.000Z"
 category: "Trip"
 tags: ["Edinburgh", "Harry Potter", "Haggis", "Y Goddodin"]
 cover: "./DSC_0079.jpg"
