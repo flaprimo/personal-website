@@ -6,6 +6,7 @@ import NextPrevElements from "../components/NextPrevElements";
 import Tags from "../components/Tags";
 import Header from "../components/Header";
 import Comments from "../components/Comments";
+import Seo from "../components/Seo";
 
 class BlogElementTemplate extends React.Component {
   render() {
@@ -21,6 +22,11 @@ class BlogElementTemplate extends React.Component {
 
     return (
       <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
+        <Seo title={title}
+             description={blogElement.excerpt}
+             url={this.props.location.href}
+             type="article"
+        />
         <Header title={title} subtitle={date + " - " + category}/>
 
         <div className="container section" style={{
@@ -55,6 +61,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
+      excerpt
       html
       frontmatter {
         title
