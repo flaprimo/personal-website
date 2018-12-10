@@ -7,6 +7,7 @@ import Tags from "../components/Tags";
 import Img from "gatsby-image";
 import Header from "../components/Header";
 import Link from "gatsby-link";
+import Seo from "../components/Seo";
 
 class PhotographyElementTemplate extends React.Component {
   render() {
@@ -22,6 +23,11 @@ class PhotographyElementTemplate extends React.Component {
 
     return (
       <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
+        <Seo title={title}
+             description={photographyElement.excerpt}
+             url={this.props.location.href}
+             type="article"
+        />
         <Header title={title} subtitle={date + " - " + category}/>
 
         <div className="container section" style={{
