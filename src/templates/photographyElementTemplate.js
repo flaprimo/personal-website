@@ -20,12 +20,14 @@ class PhotographyElementTemplate extends React.Component {
     const tags = photographyElement.frontmatter.tags;
     const date = photographyElement.frontmatter.date;
     const html = photographyElement.html;
+    const cover = String(photographyElement.frontmatter.cover.childImageSharp.resize.src);
 
     return (
       <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
         <Seo title={title}
              description={photographyElement.excerpt}
              url={this.props.location.href}
+             image={cover}
              type="article"
         />
         <Header title={title} subtitle={date + " - " + category}/>
@@ -65,11 +67,21 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         category
         tags
+        cover {
+          childImageSharp {
+            resize(width: 1000) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
     allFile(

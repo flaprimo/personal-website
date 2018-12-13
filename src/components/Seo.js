@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-const Seo = ({ title, description, url, image, type }) => (
+const Seo = ({title, description, url, image, type}) => (
   <StaticQuery
     query={graphql`
       query SeoQuery {
@@ -24,8 +24,8 @@ const Seo = ({ title, description, url, image, type }) => (
     render={({ site: { siteMetadata: seo } }) => {
       const seoTitle = title || seo.title;
       const seoDescription = description || seo.description;
-      // const image = postImage ? `${seo.canonicalUrl}${postImage}` :
-      //   withPrefix("/logo.svg");
+      const seoImage = seo.siteUrl.replace(/\/$/, "") +
+        (image ? image : "/index-bg.gits-head-shadows.svg");
       const seoUrl = url || seo.siteUrl;
       const seoType = type;
       const twitterAuthor = "@" +
@@ -37,7 +37,7 @@ const Seo = ({ title, description, url, image, type }) => (
             {/* General tags */}
             <title>{seoTitle}</title>
             <meta name="description" content={seoDescription} />
-            <meta name="image" content={image} />
+            <meta name="image" content={seoImage} />
 
             {/* OpenGraph tags */}
             <meta property="og:url" content={seoUrl} />
