@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         title: "LinkedIn",
-        user: "flavio-primo-40167942",
+        user: "flavioprimo",
         baseurl: "https://linkedin.com/in/"
       },
       {
