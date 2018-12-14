@@ -25,7 +25,7 @@ const Seo = ({title, description, url, image, type}) => (
       const seoTitle = title || seo.title;
       const seoDescription = description || seo.description;
       const seoImage = seo.siteUrl.replace(/\/$/, "") +
-        (image ? image : "/index-bg.gits-head-shadows.svg");
+        (image ? image : "/bg_seo.png");
       const seoUrl = url || seo.siteUrl;
       const seoType = type;
       const twitterAuthor = "@" +

@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
+import Seo from "../components/Seo";
 
 class CookiePolicyPage extends Component {
   render() {

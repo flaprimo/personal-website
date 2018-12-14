@@ -4,15 +4,21 @@ import PropTypes from "prop-types";
 import { withPrefix } from "gatsby-link";
 
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.description;
-    const contentTitle = this.props.data.site.siteMetadata.title;
-    const bg = withPrefix("/index-bg.gits-head-shadows.svg");
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const contentTitle = this.props.data.site.siteMetadata.description;
+    const bg = withPrefix("/bg_index.svg");
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+      <Layout siteTitle={contentTitle} contentTitle={siteTitle} location={this.props.location}>
+        <Seo title={siteTitle}
+             description={contentTitle}
+             url={this.props.location.href}
+             type="website"
+        />
         <div className="hero is-medium is-fullheight-with-navbar"
              style={{
                backgroundImage: "url(" + bg + ")",
