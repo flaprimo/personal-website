@@ -25,7 +25,7 @@ const Seo = ({title, description, url, image, type}) => (
     render={({ site: { siteMetadata: seo } }) => {
       const seoTitle = title || seo.title;
       const seoDescription = description || seo.description;
-      const seoImage = image ? image : seoImageBg;
+      const seoImage = seo.siteUrl.replace(/\/$/, "") + (image ? image : seoImageBg);
       const seoUrl = url || seo.siteUrl;
       const seoType = type;
       const twitterAuthor = "@" +
