@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import { withPrefix } from "gatsby-link";
 
 const Seo = ({title, description, url, image, type}) => (
   <StaticQuery
@@ -25,7 +26,7 @@ const Seo = ({title, description, url, image, type}) => (
       const seoTitle = title || seo.title;
       const seoDescription = description || seo.description;
       const seoImage = seo.siteUrl.replace(/\/$/, "") +
-        (image ? image : "/bg_seo.png");
+        (image ? image : withPrefix("/bg_seo.png"));
       const seoUrl = url || seo.siteUrl;
       const seoType = type;
       const twitterAuthor = "@" +
