@@ -12,6 +12,11 @@ class CookiePolicyPage extends Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+        <Seo title={contentTitle + " | " + siteTitle}
+             description={"Cookie policy for Flavio's website"}
+             url={this.props.location.href}
+             type="website"
+        />
         <Header title={contentTitle} subtitle="Come to the dark side, we have cookies!"/>
 
         <div className="container section">

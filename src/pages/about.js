@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
+import Seo from "../components/Seo";
 
 class AboutPage extends Component {
   render() {
@@ -11,6 +12,11 @@ class AboutPage extends Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+        <Seo title={contentTitle + " | " + siteTitle}
+             description={"Hi, I'm Flavio, pleased to meet you!"}
+             url={this.props.location.href}
+             type="website"
+        />
         <Header title={contentTitle} subtitle="Let's talk about me"/>
 
         <div className="container section">
