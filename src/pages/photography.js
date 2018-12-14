@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
+import Seo from "../components/Seo";
 
 class PhotographyPage extends React.Component {
   render() {
@@ -14,6 +15,11 @@ class PhotographyPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+        <Seo title={contentTitle + " | " + siteTitle}
+             description={"Flavio's photography gallery, photos from the wonderful places I've been."}
+             url={this.props.location.href}
+             type="website"
+        />
         <Header title={contentTitle} subtitle="Welcome to the photo gallery"/>
 
         <div className="container section">

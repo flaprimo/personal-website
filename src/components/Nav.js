@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "gatsby-link";
-import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import logo from "../../static/logo.svg"
 
 class Nav extends React.Component {
   constructor() {
@@ -11,7 +11,6 @@ class Nav extends React.Component {
   }
 
   render() {
-    const logo = withPrefix("/logo.svg");
     const title = this.props.data.site.siteMetadata.title;
     const nav = this.props.data.site.siteMetadata.nav.map((navitem, i) =>
       <Link key={i} className={"navbar-item" +

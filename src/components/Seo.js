@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { withPrefix } from "gatsby-link";
+import seoImageBg from "../../static/bg_seo.png"
 
 const Seo = ({title, description, url, image, type}) => (
   <StaticQuery
@@ -25,8 +25,7 @@ const Seo = ({title, description, url, image, type}) => (
     render={({ site: { siteMetadata: seo } }) => {
       const seoTitle = title || seo.title;
       const seoDescription = description || seo.description;
-      const seoImage = seo.siteUrl.replace(/\/$/, "") +
-        (image ? image : withPrefix("/bg_seo.png"));
+      const seoImage = image ? image : seoImageBg;
       const seoUrl = url || seo.siteUrl;
       const seoType = type;
       const twitterAuthor = "@" +
@@ -45,14 +44,14 @@ const Seo = ({title, description, url, image, type}) => (
             <meta property="og:type" content={seoType} />
             <meta property="og:title" content={seoTitle} />
             <meta property="og:description" content={seoDescription} />
-            <meta property="og:image" content={image} />
+            <meta property="og:image" content={seoImage} />
 
             {/* Twitter Card tags */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:creator" content={twitterAuthor} />
             <meta name="twitter:title" content={seoTitle} />
             <meta name="twitter:description" content={seoDescription} />
-            <meta name="twitter:image" content={image} />
+            <meta name="twitter:image" content={seoImage} />
           </Helmet>
         </React.Fragment>
       );

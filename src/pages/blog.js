@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
+import Seo from "../components/Seo";
 
 class BlogPage extends React.Component {
   render() {
@@ -13,6 +14,11 @@ class BlogPage extends React.Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+        <Seo title={contentTitle + " | " + siteTitle}
+             description={"Flavio's blog, lot of interesting and programming nerdy stuff!"}
+             url={this.props.location.href}
+             type="website"
+        />
         <Header title={contentTitle} subtitle="Welcome to the blog"/>
 
         <div className="container section">

@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { withPrefix } from "gatsby-link";
+import bg from "../../static/bg_index.svg"
 
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
@@ -10,7 +10,6 @@ class IndexPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const contentTitle = this.props.data.site.siteMetadata.description;
-    const bg = withPrefix("/bg_index.svg");
 
     return (
       <Layout siteTitle={contentTitle} contentTitle={siteTitle} location={this.props.location}>

@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Header from "../components/Header";
+import Seo from "../components/Seo";
 
 class NotFoundPage extends Component {
   render() {
@@ -11,6 +12,11 @@ class NotFoundPage extends Component {
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
+        <Seo title={contentTitle + " | " + siteTitle}
+             description={"Whoooooops! This page doesn't exist.. the sadness."}
+             url={this.props.location.href}
+             type="website"
+        />
         <Header title={contentTitle} subtitle="Page not found"/>
 
         <div className="container section">
