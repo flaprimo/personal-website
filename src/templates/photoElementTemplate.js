@@ -18,12 +18,9 @@ class PhotoElementTemplate extends React.Component {
       const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
       const previousImage = previous.childImageSharp.resize.src;
       previousPreload = <link rel="preload" as="image" href={previousImage}/>;
-      previousButton = <Link to={previousImagePage} replace>
+      previousButton =
         <p className="control">
-          <a className="button is-dark" style={{
-            borderTopLeftRadius: "4px",
-            borderBottomLeftRadius: "4px"
-          }}>
+          <Link to={previousImagePage} replace className="button is-dark">
             <span className="icon is-small">
               <i className="arrow-left" style={{
                 border: "solid #f5f5f5",
@@ -33,9 +30,8 @@ class PhotoElementTemplate extends React.Component {
                 transform: "rotate(135deg)"
               }}/>
             </span>
-          </a>
-        </p>
-      </Link>;
+          </Link>
+        </p>;
     }
 
     let nextPreload = "";
@@ -44,12 +40,9 @@ class PhotoElementTemplate extends React.Component {
       const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
       const nextImage = next.childImageSharp.resize.src;
       nextPreload = <link rel="preload" as="image" href={nextImage}/>;
-      nextButton = <Link to={nextImagePage} replace>
+      nextButton =
         <p className="control">
-          <a className="button is-dark" style={{
-            borderTopRightRadius: "4px",
-            borderBottomRightRadius: "4px"
-          }}>
+          <Link to={nextImagePage} replace className="button is-dark">
             <span className="icon is-small is-rounded">
               <i className="arrow-right" style={{
                 border: "solid #f5f5f5",
@@ -59,9 +52,8 @@ class PhotoElementTemplate extends React.Component {
                 transform: "rotate(-45deg)"
               }}/>
             </span>
-          </a>
-        </p>
-      </Link>;
+          </Link>
+        </p>;
     }
 
     const photo = this.props.data.photo.childImageSharp.resize;

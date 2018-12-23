@@ -45,8 +45,6 @@ exports.createPages = ({ graphql, actions }) => {
     const galleries = getGalleries(elements);
 
     for (let galleryName in galleries) {
-      console.log("adding gallery " + galleryName);
-
       if (galleries.hasOwnProperty(galleryName)) {
         const gallery = galleries[galleryName];
 
