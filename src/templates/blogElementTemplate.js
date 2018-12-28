@@ -7,6 +7,15 @@ import Tags from "../components/Tags";
 import Header from "../components/Header";
 import Comments from "../components/Comments";
 import Seo from "../components/Seo";
+import styled from "styled-components";
+
+const Content = styled.div`
+  & {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+`;
+
 
 class BlogElementTemplate extends React.Component {
   render() {
@@ -34,9 +43,7 @@ class BlogElementTemplate extends React.Component {
         }}>
           <div className="columns is-centered">
             <div className="column is-7">
-              <div className="content"
-                   style={{wordWrap: "break-word"}}
-                   dangerouslySetInnerHTML={{ __html: html }}/>
+              <Content className="content" dangerouslySetInnerHTML={{ __html: html }}/>
 
               <Tags tags={tags}/>
 
