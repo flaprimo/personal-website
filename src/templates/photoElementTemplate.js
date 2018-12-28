@@ -53,30 +53,27 @@ class PhotoElementTemplate extends React.Component {
     const title = `${gallery} | ${siteTitle}`;
     const baseUrl = this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf("/") + 1);
 
-    function get_button(image, direction) {
-      let imagePreload = "";
-      let imageButton = "";
-
-      if (image != null) {
-        const imageUrl = image.childImageSharp.resize.src;
-        const imagePage = baseUrl + image.relativePath.split("/")[1].split(".")[0];
-
-        imagePreload = <link rel="preload" as="image" href={imageUrl}/>;
-        imageButton =
-          <p className="control">
-            <Link to={imagePage} replace className="button is-dark">
-              <span className="icon is-small">
-                <ArrowIcon className={direction + "-arrow"}/>
-              </span>
-            </Link>
-          </p>;
-      }
-
-      return [imagePreload, imageButton]
+    function getImagePreload (image) {
+      const imageUrl = image.childImageSharp.resize.src;
+      return <link rel="preload" as="image" href={imageUrl}/>;
     }
 
-    const [previousPreload, previousButton] = get_button(previous, "left");
-    const [nextPreload, nextButton] = get_button(next, "right");
+    function getImageButton(image, direction) {
+      const imagePage = baseUrl + image.relativePath.split("/")[1].split(".")[0];
+      return <p className="control">
+        <Link to={imagePage} replace className="button is-dark">
+          <span className="icon is-small">
+            <ArrowIcon className={direction + "-arrow"}/>
+          </span>
+        </Link>
+      </p>;
+    }
+
+    const previousPreload = previous != null ? getImagePreload(previous) : "";
+    const previousButton = previous != null ? getImageButton(previous, "left") : "";
+
+    const nextPreload = next != null ? getImagePreload(next) : "";
+    const nextButton = next != null ? getImageButton(next, "right") : "";
 
     const photo = this.props.data.photo.childImageSharp.resize;
     // const blogElement = this.props.data.markdownRemark;
