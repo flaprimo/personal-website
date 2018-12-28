@@ -9,16 +9,15 @@ import styled from "styled-components";
 const ArrowIcon = styled.i`
   & {
     border: solid #f5f5f5;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 20%;
+    padding: 5px;
+    transform: rotate(45deg);
     
     &.left-arrow {
-      transform: rotate(135deg);
+      border-width: 0 0 2px 2px;
     }
     
     &.right-arrow {
-      transform: rotate(-45deg);
+      border-width: 2px 2px 0 0;
     }
   }
 `;
@@ -54,37 +53,30 @@ class PhotoElementTemplate extends React.Component {
     const title = `${gallery} | ${siteTitle}`;
     const baseUrl = this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf("/") + 1);
 
-    let previousPreload = "";
-    let previousButton = "";
-    if (previous != null) {
-      const previousImagePage = baseUrl + previous.relativePath.split("/")[1].split(".")[0];
-      const previousImage = previous.childImageSharp.resize.src;
-      previousPreload = <link rel="preload" as="image" href={previousImage}/>;
-      previousButton =
-        <p className="control">
-          <Link to={previousImagePage} replace className="button is-dark">
-            <span className="icon is-small">
-              <ArrowIcon className="left-arrow"/>
-            </span>
-          </Link>
-        </p>;
+    function get_button(image, direction) {
+      let imagePreload = "";
+      let imageButton = "";
+
+      if (image != null) {
+        const imageUrl = image.childImageSharp.resize.src;
+        const imagePage = baseUrl + image.relativePath.split("/")[1].split(".")[0];
+
+        imagePreload = <link rel="preload" as="image" href={imageUrl}/>;
+        imageButton =
+          <p className="control">
+            <Link to={imagePage} replace className="button is-dark">
+              <span className="icon is-small">
+                <ArrowIcon className={direction + "-arrow"}/>
+              </span>
+            </Link>
+          </p>;
+      }
+
+      return [imagePreload, imageButton]
     }
 
-    let nextPreload = "";
-    let nextButton = "";
-    if (next != null) {
-      const nextImagePage = baseUrl + next.relativePath.split("/")[1].split(".")[0];
-      const nextImage = next.childImageSharp.resize.src;
-      nextPreload = <link rel="preload" as="image" href={nextImage}/>;
-      nextButton =
-        <p className="control">
-          <Link to={nextImagePage} replace className="button is-dark">
-            <span className="icon is-small is-rounded">
-              <ArrowIcon className="right-arrow"/>
-            </span>
-          </Link>
-        </p>;
-    }
+    const [previousPreload, previousButton] = get_button(previous, "left");
+    const [nextPreload, nextButton] = get_button(next, "right");
 
     const photo = this.props.data.photo.childImageSharp.resize;
     // const blogElement = this.props.data.markdownRemark;
