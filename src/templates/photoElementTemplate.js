@@ -4,6 +4,48 @@ import PropTypes from "prop-types";
 import "bulma/css/bulma.css";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
+import styled from "styled-components";
+
+const ArrowIcon = styled.i`
+  & {
+    border: solid #f5f5f5;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 20%;
+    
+    &.left-arrow {
+      transform: rotate(135deg);
+    }
+    
+    &.right-arrow {
+      transform: rotate(-45deg);
+    }
+  }
+`;
+
+const CloseIcon = styled.i`
+  & {
+    width: 80%;
+    height: 80%;
+    position: relative;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      background: #f5f5f5;
+      width: 2px;
+      height: 100%;
+    }
+    
+    &:before {
+      transform: rotate(45deg)
+    }
+
+    &:after {
+      transform: rotate(-45deg)
+    }
+  }
+`;
 
 class PhotoElementTemplate extends React.Component {
   render() {
@@ -22,13 +64,7 @@ class PhotoElementTemplate extends React.Component {
         <p className="control">
           <Link to={previousImagePage} replace className="button is-dark">
             <span className="icon is-small">
-              <i className="arrow-left" style={{
-                border: "solid #f5f5f5",
-                borderWidth: "0 2px 2px 0",
-                display: "inline-block",
-                padding: "3px",
-                transform: "rotate(135deg)"
-              }}/>
+              <ArrowIcon className="left-arrow"/>
             </span>
           </Link>
         </p>;
@@ -44,13 +80,7 @@ class PhotoElementTemplate extends React.Component {
         <p className="control">
           <Link to={nextImagePage} replace className="button is-dark">
             <span className="icon is-small is-rounded">
-              <i className="arrow-right" style={{
-                border: "solid #f5f5f5",
-                borderWidth: "0 2px 2px 0",
-                display: "inline-block",
-                padding: "3px",
-                transform: "rotate(-45deg)"
-              }}/>
+              <ArrowIcon className="right-arrow"/>
             </span>
           </Link>
         </p>;
@@ -99,39 +129,24 @@ class PhotoElementTemplate extends React.Component {
             paddingLeft: "1rem",
             paddingRight: "1rem"
           }}>
-              <div className="level-left">
-                <div className="field has-addons">
-                  {previousButton}
-                  {nextButton}
-                </div>
+            <div className="level-left">
+              <div className="field has-addons">
+                {previousButton}
+                {nextButton}
               </div>
-              <div className="level-right">
-                <Link to={baseUrl} replace>
-                  <p className="control">
-                    <a className="button is-dark" style={{
-                      borderTopRightRadius: "4px",
-                      borderBottomRightRadius: "4px"
-                    }}>
+            </div>
+            <div className="level-right">
+              <p className="control">
+                <Link to={baseUrl} replace className="button is-dark" style={{
+                  borderTopRightRadius: "4px",
+                  borderBottomRightRadius: "4px"
+                }}>
                       <span className="icon is-small is-rounded">
-                        <i className="arrow-right" style={{
-                          border: "solid #f5f5f5",
-                          borderWidth: "0 2px 2px 0",
-                          display: "inline-block",
-                          padding: "3px",
-                          transform: "rotate(-45deg)"
-                        }}/>
-                        <i className="arrow-left" style={{
-                          border: "solid #f5f5f5",
-                          borderWidth: "0 2px 2px 0",
-                          display: "inline-block",
-                          padding: "3px",
-                          transform: "rotate(135deg)"
-                        }}/>
+                        <CloseIcon/>
                       </span>
-                    </a>
-                  </p>
                 </Link>
-              </div>
+              </p>
+            </div>
           </nav>
         </div>
       </div>
