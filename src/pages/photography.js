@@ -20,7 +20,7 @@ class PhotographyPage extends React.Component {
              url={this.props.location.href}
              type="website"
         />
-        <Header title={contentTitle} subtitle="Welcome to the photo gallery"/>
+        <Header title={contentTitle} subtitle="My point of view"/>
 
         <div className="container section">
           <div className="columns is-centered">

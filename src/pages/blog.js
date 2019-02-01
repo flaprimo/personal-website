@@ -19,7 +19,7 @@ class BlogPage extends React.Component {
              url={this.props.location.href}
              type="website"
         />
-        <Header title={contentTitle} subtitle="Welcome to the blog"/>
+        <Header title={contentTitle} subtitle="Techie 'n' nerdy stuff"/>
 
         <div className="container section">
           <div className="columns is-multiline is-centered">
