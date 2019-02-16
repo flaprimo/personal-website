@@ -3,7 +3,7 @@ module.exports = {
     title: "Flavio Primo",
     author: "Flavio Primo",
     description: "Just another dev blog",
-    siteUrl: "https://flaprimo.netlify.com/",
+    siteUrl: "https://flavioprimo.xyz",
     nav: [
       {
         title: "Home",
@@ -42,11 +42,6 @@ module.exports = {
         title: "Twitter",
         user: "flavioprimo_91",
         baseurl: "https://twitter.com/"
-      },
-      {
-        title: "Google+",
-        user: "102045317864117926234",
-        baseurl: "https://plus.google.com/u/0/"
       }
     ]
   },
@@ -118,6 +113,7 @@ module.exports = {
     "gatsby-plugin-feed",
     "gatsby-plugin-purgecss",
     "gatsby-plugin-offline",
-    "gatsby-plugin-netlify"
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-sitemap"
   ]
 };
