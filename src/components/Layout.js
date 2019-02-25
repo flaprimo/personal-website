@@ -14,6 +14,7 @@ class Layout extends React.Component {
       <div>
         <Helmet>
           <title>{title}</title>
+          <meta name="google-site-verification" content="Y8B6_MX40JiCVBbuwf-2tVFuGbifcfFi2tBlSPxhJDE"/>
           <html className="has-navbar-fixed-top" lang="en-US"/>
         </Helmet>
 
