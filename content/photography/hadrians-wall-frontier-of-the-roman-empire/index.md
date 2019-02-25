@@ -1,8 +1,8 @@
 ---
-title: Hadrian's Wall
+title: Hadrian's Wall: Frontier of the Roman Empire
 date: "2019-02-24T00:00:00.000Z"
 category: "Trip"
-tags: ["Hadrians Wall", "Haltwhistle"]
+tags: ["Hadrians Wall", "Haltwhistle", "You know nothing Jon Snow", "Ils sont fous ces Romains"]
 cover: "./DSC0055.jpg"
 ---
 
@@ -18,4 +18,4 @@ I am the shield that guards the realms of men.
 
 I pledge my life and honor to the Night's Watch, for this night and all the nights to come."
 
-―The Night's Watch
+― [The Night's Watch](https://gameofthrones.fandom.com/wiki/Night%27s_Watch)
