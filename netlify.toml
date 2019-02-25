@@ -1,4 +1,12 @@
 [[redirects]]
+  from = "http://flaprimo.netlify.com/*"
+  to = "https://flavioprimo.xyz/:splat"
+
+[[redirects]]
+  from = "https://flaprimo.netlify.com/*"
+  to = "https://flavioprimo.xyz/:splat"
+
+[[redirects]]
   from = "/programming-languages/*"
   to = "/blog/:splat"
 
