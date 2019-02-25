@@ -3,7 +3,7 @@ title: "Hadrian's Wall: Frontier of the Roman Empire"
 date: "2019-02-24T00:00:00.000Z"
 category: "Trip"
 tags: ["Hadrians Wall", "Haltwhistle", "You know nothing Jon Snow", "Ils sont fous ces Romains"]
-cover: "./DSC0055.jpg"
+cover: "./DSC_0055.jpg"
 ---
 
 "Night gathers, and now my watch begins.
