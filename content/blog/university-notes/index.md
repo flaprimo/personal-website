@@ -108,3 +108,7 @@ If you like my notes please consider **[buying me a beer](https://www.paypal.me/
 **DM - Data Mining**
 
 *   [Summary Computer Graphics](https://www.mediafire.com/file/99xj8ncpbn2u99k/Summary+-+Data+Mining.pdf)
+
+**BIS2 - Business Information Systems 2**
+
+*   [Summary Business Information Systems 2](https://www.mediafire.com/file/zf6od693xee1drt/Summary_-_Business_Information_Systems_2.pdf/file)
