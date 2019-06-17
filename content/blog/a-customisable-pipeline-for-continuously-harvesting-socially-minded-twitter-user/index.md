@@ -33,5 +33,6 @@ Thanks to Prof. Carlo Piccardi
 Links
 ----
 
-*   [Research paper (full-text publicly available)](https://www.researchgate.net/publication/331832776_A_customisable_pipeline_for_continuously_harvesting_socially-minded_Twitter_users/)
+*   [Research paper (full-text publicly available)](https://www.researchgate.net/publication/331832776_A_customisable_pipeline_for_continuously_harvesting_socially-minded_Twitter_users)
+*   [Research paper slides](https://www.slideshare.net/FlavioPrimo2/a-customisable-pipeline-for-continuously-harvesting-sociallyminded-twitter-users)
 *   [Project code](https://github.com/flaprimo/twitter-network-analysis)
