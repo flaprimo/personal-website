@@ -25,7 +25,7 @@ module.exports = {
     social: [
       {
         title: "Facebook",
-        user: "flavio.primo.91",
+        user: "flaprimo1",
         baseurl: "https://www.facebook.com/"
       },
       {
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         title: "Twitter",
-        user: "flavioprimo_91",
+        user: "flaprimo1",
         baseurl: "https://twitter.com/"
       }
     ]
