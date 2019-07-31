@@ -42,6 +42,16 @@ module.exports = {
         title: "Twitter",
         user: "flaprimo1",
         baseurl: "https://twitter.com/"
+      },
+      {
+        title: "Instagram",
+        user: "flaprimo1",
+        baseurl: "https://instagram.com/"
+      },
+      {
+        title: "Spotify",
+        user: "1168817494",
+        baseurl: "https://open.spotify.com/user/"
       }
     ]
   },
