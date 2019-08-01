@@ -112,3 +112,7 @@ If you like my notes please consider **[buying me a beer](https://www.paypal.me/
 **BIS2 - Business Information Systems 2**
 
 *   [Summary Business Information Systems 2](https://www.mediafire.com/file/zf6od693xee1drt/Summary_-_Business_Information_Systems_2.pdf/file)
+
+**ML - Machine Learning**
+
+*   [Summary Machine Learning exercises](https://www.mediafire.com/file/e6j1pvhgmcmm7rf/Summary_-_Machine_Learning_Exercises.pdf/file)
