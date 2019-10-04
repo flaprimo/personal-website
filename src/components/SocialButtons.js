@@ -16,6 +16,7 @@ const SocialButtons = ({ data }) => (
         <li key={i} style={{ display: "inline-block", marginRight: "10px" }}>
           <SocialIcon url={social.baseurl + social.user}
                       color="#363636"
+                      rel="me"
                       style={{
                         height: 40,
                         width: 40

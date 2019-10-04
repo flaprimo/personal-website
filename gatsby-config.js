@@ -52,6 +52,11 @@ module.exports = {
         title: "Spotify",
         user: "1168817494",
         baseurl: "https://open.spotify.com/user/"
+      },
+      {
+        title: "Mastodon",
+        user: "@flaprimo",
+        baseurl: "https://mastodon.social/"
       }
     ]
   },
