@@ -57,6 +57,11 @@ module.exports = {
         title: "Mastodon",
         user: "@flaprimo",
         baseurl: "https://mastodon.social/"
+      },
+      {
+        title: "Keybase",
+        user: "flaprimo",
+        baseurl: "https://keybase.io/"
       }
     ]
   },

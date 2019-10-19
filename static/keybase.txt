@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/flaprimo
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://flavioprimo.xyz
+  * I am flaprimo (https://keybase.io/flaprimo) on keybase.
+  * I have a public key with fingerprint 05EE DFEC 81E5 C008 7821  D953 24BA BB95 5B76 0753
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01011b5e05368e9d3416addc102fceb893c892ea0c060528ba767fd1fc1f63ed1d8f0a",
+      "fingerprint": "05eedfec81e5c0087821d95324babb955b760753",
+      "host": "keybase.io",
+      "key_id": "24babb955b760753",
+      "kid": "01011b5e05368e9d3416addc102fceb893c892ea0c060528ba767fd1fc1f63ed1d8f0a",
+      "uid": "c5f26be141b05f734286f6fd7d457f19",
+      "username": "flaprimo"
+    },
+    "service": {
+      "hostname": "flavioprimo.xyz",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1571480172,
+  "expire_in": 157680000,
+  "prev": "13fbd25177fa8c943fc4045b3597efd5e7c2f2e7c8d33e300e30c16440b8f1fd",
+  "seqno": 4,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.3
+Comment: https://keybase.io/crypto
+
+yMImAnicrVJbSFRBGF67GBqB9VD5UnmkiFCZOefMuWxIlA9FVLhIF8Naz9x2D63n
+rLtH0zXF7lSgRUQUVBZEYRb1kIIKqRgFBRZ0pR60goQIuoBomTVnKXrpsYGZn/nn
++775/p9/cM70QHYG2Vdxs23J6IGMB/1nawI72t/EGiTs0nop2CDtYunAYpQlvfAu
+m0pBCUAAIUYMIEUzmEkVFWoWpQQCmROGDVMhhikzCxCgASQb2NI1nVPICeSawiik
+BgeWVCBx24mwRDxhO54vixijnBEDMkQAMHRDhtREiqxiC2MTIaxrQEeKIEbdpM8Q
+5rCVZEW2K3LiEk7b+wf+P/uuScsRxGUNM6hCDBDXFVU2NK5xqlMV6RyaPjDJEo5V
+xQSaxyxRaJUrNRZIIltrE+Y31q/kL6LWdtOgorr6lKDHE67nEjcmHqOeF08GfbJX
+H/fRuxkO/9YJY9uhopWCUcsSSdt1pCAUSOLZvjBEOlQNAHW5QGJ1cTvBwraTTmsG
+EMv/h9UKSahwTGUEdZ1bBjFVhRMVqAgryNQZp4jpROayOA2qKEwBQGwCNVUF2OCQ
+U8mvrNpxpaAqbFoRIZm0I47l1SSY1DjQVzEjkJEdyJw5zR+xQHZWzp/B21M46+d6
+1rW9vFSdas59VbK2+NyBw0cmGpadyxnPnfvFqh5ccWqkP/Vh96et0BmePL1k44Lv
+BfMOLx0KXdpy9cXbMT3vzv5H7wYSmXsr+4af9diTG6NtPbdP7q1ua83f/PClBRp6
+UgdbF561f3Qu3NQcU0OlZ7o6U2MVB0e+fsyBQS97affj7anlq9blDdx7fnHqKd2E
+y2bndwyv6c3qHcvMPbZ6xoZvE4eaaviT+eWkqfDxifPFoddv6oai643ycHckHx75
+3HL/aPm24mt3C1e3XOibujH+HZfOe98+Gr3VOlGyc3HHuust7zomVhZdKxvqLjz/
+tGztZWLH9v+cXNS2qvlYKKvy+JVfGYVJLw==
+=obdF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/flaprimo
+
+==================================================================
