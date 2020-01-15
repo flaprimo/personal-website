@@ -95,7 +95,8 @@ If you like my notes please consider **[buying me a beer](https://www.paypal.me/
 
 **FLC - Formal Languages and Compilers**
 
-*   [Summary Formal Languages and Compilers](https://www.mediafire.com/file/ms41gejd1rfeqzt/Summary_-_Formal_Languages_and_Compilers.pdf)
+*   [Summary Formal Languages and Compilers - LAB](https://www.mediafire.com/file/ihouqtboq5ptn2k/Summary_-_Formal_Languages_and_Compilers_Laboratory.pdf/file)
+*   [Summary Formal Languages and Compilers - THEORY](https://www.mediafire.com/file/7zjeqqh2qnkgqdc/Summary_-_Formal_Languages_and_Compilers_Theory.pdf/file)
 
 **AAMAS - Autonomous Agents and Multiagent Systems**
 
