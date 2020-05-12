@@ -25,3 +25,6 @@
 [[redirects]]
   from = "/university/*"
   to = "/blog/:splat"
+
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"
