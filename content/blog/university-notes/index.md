@@ -5,11 +5,11 @@ category: "University"
 tags: ["computer science", "engineering", "notes", "Polimi", "Politecnico di Milano", "Roma Tre", "university"]
 ---
 
-I've decided to gather my university notes for easier consultation since they were useful for a lot of people (notes from foundations of telecommunications course were downloaded 2773 times!).
+I've decided to gather my university notes for easier consultation since they were useful for a lot of people (notes from foundations of telecommunications course were downloaded 2820 times!).
 
-Published notes come from the bachelor of Software Engineering at Roma Tre University as well as from the master of Software Engineering at Politecnico di Milano (updates will come).
+Published notes come from the bachelor of Software Engineering at [Roma Tre University](https://www.uniroma3.it/) as well as from the master of Software Engineering at [Politecnico di Milano](https://www.polimi.it).
 
-Of course errors will be present, so if you find any please tell me (a comment is fine) and I'll try to correct them.
+Of course errors will be present, so if you find any please tell me (a comment is fine), and I'll try to correct them.
 
 If you like my notes please consider **[buying me a beer](https://www.paypal.me/flaprimo)** (in person is even more appreciated :)), happy study!
 
