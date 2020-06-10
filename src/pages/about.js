@@ -30,12 +30,14 @@ class AboutPage extends Component {
           </div>
           <div className="columns is-centered">
             <div className="content column is-7">
-              <p>I am <b>Flavio Primo</b> an Italian all around developer with a focus on Data Science with a bachelor&#39;s degree in computer science and
-                engineering at <a target="_blank" rel="noopener noreferrer" href="http://www.uniroma3.it/">Università degli
-                  Studi Roma Tre</a>.</p>
-              <p>I am currently studying for a master&#39;s degree in computer science and engineering at <a target="_blank"
+              <p>I am <b>Flavio Primo</b> a Cloud Data Architect at
+                <a target="_blank" rel="noopener noreferrer" href="https://www.bipconsulting.com/who-we-are/practices/x-Tech">Bip xTech</a>
+                based in Milan, Italy.
+                I am an all around developer with a focus on Data Science and Engineering with a MSc degree in Computer
+                Science and Engineering at <a target="_blank" rel="noopener noreferrer" href="https://www.polimi.it">Politecnico di Milano</a>.</p>
+              <p>I am currently studying for a second level master&#39;s degree in Cloud Data Architecture at <a target="_blank"
                                                                                                              rel="noopener noreferrer"
-                                                                                                             href="https://www.polimi.it/">Politecnico
+                                                                                                             href="https://www.cefriel.com/en">Cefriel - Politecnico
                 di Milano</a>.</p>
               <p>I enjoy reading news about technology and politics, watching movies and TV series (my favorites are SciFi
                 and thought provoker genres), listening to music (pretty much anything), travelling, running, reading books and
