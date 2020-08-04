@@ -5,7 +5,7 @@ category: "Multimedia"
 tags: ["streaming", "YouTube", "OBS Studio", "covid19", "graduation", "Polimi", "Politecnico di Milano", "university"]
 ---
 
-Thanks to [COVID 19 lockdown in Italy](https://en.wikipedia.org/wiki/COVID-19_pandemic_in_Italy), [Politecnico di Milano](https://www.polimi.it) decided to graduate students remotely using [Microsoft Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software).
+Because of [COVID 19 lockdown in Italy](https://en.wikipedia.org/wiki/COVID-19_pandemic_in_Italy), [Politecnico di Milano](https://www.polimi.it) decided to graduate students remotely using [Microsoft Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software).
 
 To let parents, relatives and friends to assist my graduation remotely, I decided to **stream the content of my graduation over a not listed direct stream over YouTube**.
 
