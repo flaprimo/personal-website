@@ -2,7 +2,7 @@
 title: Lifelong Learning
 date: "2020-06-11T00:00:00.000Z"
 category: "Notes"
-tags: [ "Notes", "computer science", "engineering", "learning"]
+tags: ["Notes", "computer science", "engineering", "learning"]
 ---
 
 **Lifelong Learning** is the concept of ["ongoing, voluntary, and self-motivated"](https://files.eric.ed.gov/fulltext/ED471201.pdf) pursuit of knowledge for any reason.
@@ -20,6 +20,7 @@ If you like my notes please consider **[buying me a beer](https://www.paypal.me/
 *   [Big Data Analytics](http://www.mediafire.com/file/r7xpap3licqu8da/Summary_-_Big_Data_Analytics.pdf/file) from [Newcastle University (UK)](https://www.ncl.ac.uk)
 *   [Data Engineering](http://www.mediafire.com/file/6smlgghk6121wtc/Data_Engineering.pdf/file) from [UDacity](https://classroom.udacity.com/nanodegrees/nd027)
 *   [Improving Your Statistical Inference (TUe - Eindhoven University of Technology)](http://www.mediafire.com/file/spakg15tmhvurwl/Improving_Your_Statistical_Inferences.pdf/file) from [Coursera](https://www.coursera.org/learn/statistical-inferences)
+*   [AWS Cloud Practitioner Essentials](http://www.mediafire.com/file/ryhwdl38z2mhk20/AWS_Cloud_Practitioner_Essentials.pdf/file) from [AWS Training and Certification](https://www.aws.training)
 
 **Soft Skills**
 
