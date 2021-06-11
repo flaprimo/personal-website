@@ -21,6 +21,7 @@ If you like my notes please consider **[buying me a beer](https://www.paypal.me/
 *   [Data Engineering](http://www.mediafire.com/file/6smlgghk6121wtc/Data_Engineering.pdf/file) from [UDacity](https://classroom.udacity.com/nanodegrees/nd027)
 *   [Improving Your Statistical Inference (TUe - Eindhoven University of Technology)](http://www.mediafire.com/file/spakg15tmhvurwl/Improving_Your_Statistical_Inferences.pdf/file) from [Coursera](https://www.coursera.org/learn/statistical-inferences)
 *   [AWS Cloud Practitioner Essentials](http://www.mediafire.com/file/ryhwdl38z2mhk20/AWS_Cloud_Practitioner_Essentials.pdf/file) from [AWS Training and Certification](https://www.aws.training)
+*   [CKA - Certified Kubernetes Administrator Exam Notes](https://www.mediafire.com/file/tnymbe8z5uz9kr6/CKA_Certified_Kubernetes_Administrator_exam.pdf/file) from [Certified Kubernetes Administrator (CKA) with Practice Tests](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/)
 
 **Soft Skills**
 
